@@ -5,6 +5,5 @@
 
     <p>Contenu Accueil</p>
     
-    <p><?=$variable_de_demo?></p>
     
 </div>

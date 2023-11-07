@@ -97,10 +97,10 @@ a {
   background-color: #cf98ff;
 }
 
-.connexion {
+.connection {
   background: #e9e9e9;
 }
-.connexion::before {
+.connection::before {
   background-color: #cccccc;
 }
 

@@ -26,15 +26,15 @@ $mainController = new MainController();
 
 try {
     if (empty($_GET['page'])) {
-        $url[0] = "accueil";
+        $url[0] = "home";
     } else {
         $url = explode("/", filter_var($_GET['page'], FILTER_SANITIZE_URL));
         $page = $url[0];
     }
 
     switch ($url[0]) {
-        case "accueil":
-            $mainController->pageAccueil();
+        case "home":
+            $mainController->homePage();
             break;
         case "theme":
             $themeChoisi = $secure->secureHTML($url[1]);
@@ -44,12 +44,12 @@ try {
             // verification($themeChoisi);
             // pageTheme($themeChoisi);
             break;
-        case "pageConnexion":
-            $mainController->pageConnexion();
+        case "connectionPage":
+            // $mainController->connectionPage();
             break;
         default:
             throw new Exception("La page demandée n'existe pas...");
     }
 } catch (Exception $msg) {
-    $MainController->pageErreur($msg->getMessage());
+    $mainController->errorPage($msg->getMessage());
 }

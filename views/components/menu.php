@@ -15,9 +15,9 @@ $themes = $mainManager-> getThemes();
 
 
 
-   <a href="<?= URL ?>accueil" class="btnTheme all_themes 
+   <a href="<?= URL ?>home" class="btnTheme all_themes 
       <?=
-      (empty($url[0]) || $url[0] === 'accueil') ? 'selected_theme' : '';
+      (empty($url[0]) || $url[0] === 'home') ? 'selected_theme' : '';
       ?>
    " >
       <p>Accueil</p>
@@ -31,8 +31,8 @@ $themes = $mainManager-> getThemes();
       </a>
    <?php endforeach ?>
 
-   <a href="<?= URL ?>connexion" class="btnTheme all_themes connexion 
-      <?=$url[0] === 'connexion' ? 'selected_theme' : '';
+   <a href="<?= URL ?>connection" class="btnTheme all_themes connection 
+      <?=$url[0] === 'connection' ? 'selected_theme' : '';
       ?>
    " >
       <p>Connexion</p>

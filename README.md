@@ -2,6 +2,10 @@
 <br><br>
 
 
+<h3>11/07/2023</h3>
+Ajout bouton "connexion".<br>
+PAssage des functions static en non static et création d'objets dans les fichiers nécessaires.<br>
+
 
 <h3>11/06/2023</h3>
 Mise en place du projet.<br>

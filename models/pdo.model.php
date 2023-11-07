@@ -9,7 +9,7 @@ abstract class Model
 {
 
     private static $pdo;
-    public static function setBDD()
+    private static function setBDD()
     {
         try {
             //connexion à notre BDD, à modifier pour site en construction

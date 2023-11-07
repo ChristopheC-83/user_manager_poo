@@ -15,9 +15,9 @@
 
 <body class="body">
 
-    <?php require_once("views/commons/overlay.php") ?>
+    <?php require_once("views/components/overlay.php") ?>
 
-    <?php require_once("views/commons/header.php") ?>
+    <?php require_once("views/components/header.php") ?>
 
 
 
@@ -37,15 +37,15 @@
             ?>
             <?= $page_content ?>
         </div>
-        <?php require_once("views/commons/footer.php") ?>
+        <?php require_once("views/components/footer.php") ?>
     </div>
 
 
 
 
     <?php if (!empty($js)) : ?>
-        <?php foreach ($js as $fichierJS) : ?>
-            <script src="<?= URL ?>public/javascript/<?= $fichierJS ?>"> </script>
+        <?php foreach ($js as $jsFile) : ?>
+            <script src="<?= URL ?>public/javascript/<?= $jsFile ?>"> </script>
         <?php endforeach ?>
     <?php endif ?>
 

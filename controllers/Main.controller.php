@@ -22,32 +22,30 @@ class MainController
     }
     // mainController répertorie les pages avec leurs infos respectives
 
-    public function pageAccueil()
+    public function homePage()
     {
 
 
         $data_page = [
             "page_description" => "Description accueil",
             "page_title" => "titre accueil",
-            "view" => "views/pages/public/accueil.view.php",
-            "template" => "views/commons/template.php",
-            "css" => "accueilContainer",
-            "variable_de_demo" => "demo de variable"
+            "view" => "views/Visitor/homePage.view.php",
+            "template" => "views/templates/template.php",
 
         ];
-        $this->functions->genererPage($data_page);
+        $this->functions->generatePage($data_page);
     }
-    public function pageErreur($msg)
+    public function errorPage($msg)
     {
 
         $data_page = [
             "page_description" => "Erreur !",
             "page_title" => "Erreur !",
-            "view" => "views/pages/public/erreur.view.php",
-            "template" => "views/commons/template.php",
+            "view" => "views/Visitor/errorPage.view.php",
+            "template" => "views/templates/template.php",
             "msg" => $msg,
         ];
-        $this->functions->genererPage($data_page);
+        $this->functions->generatePage($data_page);
     }
    
 }

@@ -8,7 +8,7 @@ class Secure
         return htmlentities($chaine);
     }
 
-    public function estConnecte()
+    public function isConnected()
     {
         return (!empty($_SESSION['profil']['login']));
     }

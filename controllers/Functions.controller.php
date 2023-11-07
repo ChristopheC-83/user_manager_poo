@@ -4,7 +4,7 @@
 
 class Functions 
 {
-    public function genererPage($data)
+    public function generatePage($data)
     {
         extract($data);
         ob_start();
@@ -13,14 +13,14 @@ class Functions
         require_once($template);
     }
 
-    public function afficherTableau($array)
+    public function showArray($array)
     {
         echo "<pre>";
         print_r($array);
         echo "</pre>";
     }
 
-    public function ajouterMessageAlerte($message, $type)
+    public function alertMessage($message, $type)
     {
         $_SESSION['alert'][] = [
             "message" => $message,
