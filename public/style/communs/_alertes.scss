@@ -1,0 +1,22 @@
+.alert {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  width: 60%;
+  transform : translate(-50%, -50%);
+  height: fit-content;
+  padding: 10px;
+  @include flexMid;
+  font-weight: bold;
+  border-radius: 10px;
+}
+
+.rouge {
+  background-color: crimson;
+}
+.orange {
+  background-color: rgb(255, 150, 14);
+}
+.vert {
+  background-color: greenyellow;
+}

@@ -1,0 +1,365 @@
+/*! minireset.css v0.0.6 | MIT License | github.com/jgthms/minireset.css */
+html, body, p, ol, ul, li, dl, dt, dd, blockquote, figure, fieldset, legend, textarea, pre, iframe, hr, h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: 100%;
+  font-weight: normal;
+}
+
+ul {
+  list-style: none;
+}
+
+button, input, select {
+  margin: 0;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+img, video {
+  height: auto;
+  max-width: 100%;
+}
+
+iframe {
+  border: 0;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+td, th {
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.all_themes {
+  background: #f08b7b;
+}
+.all_themes::before {
+  background-color: #e75038;
+}
+
+.formations {
+  background: #fcd279;
+}
+.formations::before {
+  background-color: #fabf41;
+}
+
+.rocket {
+  background: #fff3ae;
+}
+.rocket::before {
+  background-color: #fae25d;
+}
+
+.portfolio {
+  background: #bbffbb;
+}
+.portfolio::before {
+  background-color: #77fc77;
+}
+
+.projets {
+  background: #a2edff;
+}
+.projets::before {
+  background-color: #57ddff;
+}
+
+.tricks {
+  background: #c9b1ff;
+}
+.tricks::before {
+  background-color: #a27aff;
+}
+
+.autres {
+  background: #ebd8fc;
+}
+.autres::before {
+  background-color: #cf98ff;
+}
+
+.connexion {
+  background: #e9e9e9;
+}
+.connexion::before {
+  background-color: #cccccc;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+label,
+input,
+button {
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+h1 {
+  font-size: clamp(32px, 24px + 2.2vw, 60px);
+  letter-spacing: calc(1px + 0.12vw);
+  text-shadow: 1px 1px 2px var(--text_2);
+}
+
+h2 {
+  font-size: clamp(23px, 20px + 1.65vw, 40px);
+  letter-spacing: calc(1px + 0.04vw);
+  text-shadow: 1px 1px 2px var(--text_2);
+}
+
+h3 {
+  font-size: clamp(20px, 20px + 1vw, 29px);
+  letter-spacing: calc(1px + 0.02vw);
+  text-shadow: 1px 1px 2px var(--text_2);
+}
+
+h4 {
+  font-size: clamp(18px, 14px + 0.7vw, 22px);
+  line-height: clamp(22px, 20px + 1.2vw, 35px);
+  text-shadow: 1px 1px 2px var(--text_2);
+  font-weight: normal;
+}
+
+p {
+  font-size: clamp(16px, 14px + 0.6vw, 20px);
+  line-height: clamp(20px, 20px + 1vw, 33px);
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: var(--overlay);
+}
+
+.dark-switch {
+  /* The switch - the box around the slider */
+  margin: 20px;
+  /* Hide default HTML checkbox */
+  /* The slider */
+}
+.dark-switch .switch {
+  display: block;
+  --width-of-switch: 3.5em;
+  --height-of-switch: 2em;
+  /* size of sliding icon -- sun and moon */
+  --size-of-icon: 1.4em;
+  /* it is like a inline-padding of switch */
+  --slider-offset: 0.3em;
+  position: relative;
+  width: var(--width-of-switch);
+  height: var(--height-of-switch);
+  z-index: 25;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.dark-switch .switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  cursor: pointer;
+}
+.dark-switch .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--bg_1);
+  transition: 0.4s;
+  border-radius: 30px;
+  box-shadow: 0px 0px 20px var(--text_2);
+}
+.dark-switch .slider:before {
+  position: absolute;
+  content: "";
+  height: var(--size-of-icon, 1.4em);
+  width: var(--size-of-icon, 1.4em);
+  border-radius: 20px;
+  left: var(--slider-offset, 0.3em);
+  top: 50%;
+  transform: translateY(-50%);
+  background: linear-gradient(40deg, #ff0080, #faebfa 70%);
+  transition: 0.4s;
+}
+.dark-switch input:checked + .slider {
+  background-color: var(--bg_1);
+  box-shadow: 0px 0px 20px var(--text_2);
+}
+.dark-switch input:checked + .slider:before {
+  left: calc(100% - (var(--size-of-icon, 1.4em) + var(--slider-offset, 0.3em)));
+  background: var(--bg_1);
+  /* change the value of second inset in box-shadow to change the angle and direction of the moon  */
+  box-shadow: inset -3px -2px 5px -2px #8983f7, inset -10px -4px 0 0 #a3dafb;
+}
+
+.alert {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  width: 60%;
+  transform: translate(-50%, -50%);
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  border-radius: 10px;
+}
+
+.rouge {
+  background-color: crimson;
+}
+
+.orange {
+  background-color: rgb(255, 150, 14);
+}
+
+.vert {
+  background-color: greenyellow;
+}
+
+footer {
+  width: 100%;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header {
+  height: 100vh;
+  width: 220px;
+  position: fixed;
+  top: 0;
+  padding-bottom: 80px;
+}
+header h2 {
+  text-align: center;
+}
+
+.btnThemesContainer {
+  width: 100%;
+  height: 80%;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 5px;
+}
+
+.btnTheme {
+  width: 180px;
+  height: 50px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  padding-left: 10px;
+  cursor: pointer;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s 0.15s ease-out;
+}
+.btnTheme p {
+  position: relative;
+  z-index: 5;
+}
+.btnTheme::before {
+  content: "";
+  width: 180px;
+  height: 50px;
+  border-radius: 50px;
+  position: absolute;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transform-origin: left;
+  z-index: 0;
+  transform: translate(calc(-150% + clamp(50px, 8%, 75px)), -50%);
+  transition: all 0.4s ease-out;
+}
+.btnTheme:hover {
+  font-weight: bold;
+  box-shadow: 0px 0px 0px 0px var(--text_2);
+  letter-spacing: 5px;
+}
+.btnTheme:hover::before {
+  transform: translate(-50%, -50%);
+}
+
+.selected_theme {
+  font-weight: bold;
+  box-shadow: 0px 0px 0px 0px var(--text_2);
+  letter-spacing: 5px;
+}
+.selected_theme::before {
+  transform: translate(-50%, -50%);
+}
+
+@media screen and (max-width: 900px) {
+  .btnThemesContainer {
+    padding-top: 2vh;
+    justify-content: start;
+    gap: 3vh;
+  }
+}
+.containing {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  margin-left: 220px;
+  position: relative;
+}
+
+.content {
+  flex-grow: 1;
+}
+
+.body {
+  background: linear-gradient(270deg, var(--bg_1) 0%, var(--components_1) 100%);
+  color: var(--text_2);
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  transition: all 0.3s;
+}
+
+.dnone {
+  display: none;
+}/*# sourceMappingURL=style.css.map */

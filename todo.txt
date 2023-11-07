@@ -1,0 +1,4 @@
+- disparition des alertes plus smooth...(remonte en réduisant et opacité baisse)
+apparition aussi (descentes à sa place...)
+
+-
