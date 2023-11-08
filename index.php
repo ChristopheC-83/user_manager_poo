@@ -9,6 +9,8 @@ define("URL", str_replace("index.php", "", (isset($_SERVER['HTTPS']) ? "https"  
     $_SERVER["PHP_SELF"]));
 
 
+// require_once("./controllers/Tools.controller.php");
+require_once("./controllers/Secure.controller.php");
 require_once("./controllers/Functions.controller.php");
 $functions = new Functions();
 require_once("./controllers/Secure.controller.php");
@@ -54,7 +56,13 @@ try {
             $visitorController->forgotPassword();
             break;
         case "validation_login":
-            Tools::showArray($_POST);
+            if (!empty($_POST['login']) && !empty($_POST['password'])) {
+                Tools::showArray($_POST);
+            } else {
+                Tools::alertMessage("Il faut remplir les 2 champs !", "orange");
+                header('Location: ' . URL . 'connection');
+            }
+
             break;
         default:
             throw new Exception("La page demandée n'existe pas...");

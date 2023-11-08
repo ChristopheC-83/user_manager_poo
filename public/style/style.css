@@ -253,12 +253,16 @@ p {
   transform: translate(-50%, -50%);
   height: -moz-fit-content;
   height: fit-content;
-  padding: 10px;
+  padding: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
   font-weight: bold;
   border-radius: 10px;
+}
+.alert h3 {
+  font-weight: bold;
+  text-shadow: 2px 2px 4px var(--bg_1);
 }
 
 .red {
