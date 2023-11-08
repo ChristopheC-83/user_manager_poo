@@ -1,6 +1,6 @@
 <?php
 
-// fichier avec des fonctions utilitaires
+// fichier avec des fonctions récurrentes
 
 class Functions
 {

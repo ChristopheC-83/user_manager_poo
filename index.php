@@ -44,8 +44,8 @@ try {
             // verification($themeChoisi);
             // pageTheme($themeChoisi);
             break;
-        case "connectionPage":
-            // $mainController->connectionPage();
+        case "connection":
+            $visitorController->connectionPage();
             break;
         default:
             throw new Exception("La page demandée n'existe pas...");

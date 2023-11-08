@@ -150,6 +150,29 @@ p {
   line-height: clamp(20px, 20px + 1vw, 33px);
 }
 
+.container {
+  width: 94%;
+  margin: 80px auto;
+  padding: 10px;
+  max-width: 1600px;
+}
+.container h1 {
+  text-align: center;
+}
+
+@media screen and (max-width: 1200px) {
+  .container {
+    width: 96%;
+    margin: 20px auto;
+  }
+}
+@media all and (max-width: 768px) {
+  .container {
+    width: 98%;
+    margin: 20px auto;
+    padding-top: 80px;
+  }
+}
 .overlay {
   position: fixed;
   top: 0;
@@ -347,6 +370,72 @@ header h2 {
 
 .content {
   flex-grow: 1;
+}
+
+.containerForm {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+.entryForm {
+  display: flex;
+  flex-direction: column;
+  border: 5px solid black;
+  border-radius: 10px;
+  padding: 15px 10px;
+  background: linear-gradient(34deg, rgba(234, 0, 255, 0.9) 0%, rgba(238, 184, 6, 0.9) 80%);
+}
+.entryForm label {
+  color: black;
+  font-weight: bold;
+  padding-bottom: 5px;
+  font-size: clamp(16px, 14px + 0.6vw, 20px);
+  line-height: clamp(20px, 20px + 1vw, 33px);
+}
+.entryForm input,
+.entryForm select,
+.entryForm textarea {
+  width: 100%;
+  border-radius: 5px;
+  padding: 5px;
+  outline: none;
+}
+.entryForm .texteArticle {
+  min-height: 150px;
+}
+.entryForm button {
+  width: clamp(250px, 50%, 80%);
+  font-size: 30px;
+  border-radius: 10px;
+  margin: 0 auto;
+  padding: 10px;
+  transition: all 0.3s;
+}
+.entryForm button p {
+  background-clip: text;
+  -webkit-background-clip: text;
+  background-image: linear-gradient(34deg, rgb(234, 0, 255) 0%, rgb(238, 184, 6) 80%);
+  color: transparent;
+  font-size: clamp(20px, 20px + 1vw, 29px);
+  letter-spacing: calc(1px + 0.02vw);
+  font-weight: bold;
+}
+.entryForm button:hover {
+  transform: scale(1.02);
+  background-color: white;
+}
+
+.table {
+  width: 100%;
+  padding: 10px;
+  padding-bottom: 20px;
+  margin: 10px;
+  border-radius: 10px;
+}
+.table h3 {
+  margin: 10px;
+  margin-left: 50px;
 }
 
 .body {

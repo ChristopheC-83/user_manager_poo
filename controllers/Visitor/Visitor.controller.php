@@ -14,17 +14,12 @@ class VisitorController extends MainController
         $this->visitorManager = new VisitorManager();
     }
 
-    public function homePage()
+    public function connectionPage()
     {
-        $psw_hash = $this->functions->hashFunction("kiki");
-        $users = $this->visitorManager->getUsers();
-
         $data_page = [
-            "page_description" => "Description accueil",
-            "page_title" => "titre accueil",
-            "view" => "views/Visitor/homePage.view.php",
-            "pws_hash" => $psw_hash,
-            "users" => $users,
+            "page_description" => "Page de connexion",
+            "page_title" => "Page de connexion",
+            "view" => "views/Visitor/connectionPage.view.php",
             "template" => "views/templates/template.php",
 
         ];

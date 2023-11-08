@@ -1,6 +1,7 @@
 <?php
 
-abstract class Utilities
+// fichier avec des fonctions utilitaires ponctuelles
+abstract class Tools
 {
     public static function showArray($array)
     {
