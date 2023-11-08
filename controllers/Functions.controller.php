@@ -2,7 +2,7 @@
 
 // fichier avec des fonctions utilitaires
 
-class Functions 
+class Functions
 {
     public function generatePage($data)
     {
@@ -13,18 +13,9 @@ class Functions
         require_once($template);
     }
 
-    public function showArray($array)
+    public function hashFunction($psw)
     {
-        echo "<pre>";
-        print_r($array);
-        echo "</pre>";
+        $hashedPsw = password_hash($psw, PASSWORD_DEFAULT);
+        return $hashedPsw;
     }
-
-    public function alertMessage($message, $type)
-    {
-        $_SESSION['alert'][] = [
-            "message" => $message,
-            "type" => $type
-        ];
-    }
-}
+};

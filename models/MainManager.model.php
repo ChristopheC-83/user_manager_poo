@@ -3,9 +3,8 @@
 // ils gèrent aussi la partie logique du site.
 
 require_once("./models/pdo.model.php");
-class MainManager extends Model
+abstract class MainManager extends Model
 {
-
     public function getThemes()
     {
         $req = "SELECT * FROM themes ORDER BY id_theme asc";

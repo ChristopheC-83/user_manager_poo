@@ -1,4 +1,6 @@
 <?php
+
+
 if (empty($_GET['page'])) {
    $url[0] = "accueil";
 } else {
@@ -6,9 +8,10 @@ if (empty($_GET['page'])) {
    $page = $url[0];
 }
 
-require_once("./models/MainManager.model.php");
-$mainManager = new MainManager();
-$themes = $mainManager-> getThemes();
+require_once("./models/Visitor/Visitor.model.php");
+
+$visitorController = new VisitorManager();
+$themes = $visitorController-> getThemes();
 
 ?>
 <div class="btnThemesContainer">

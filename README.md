@@ -3,8 +3,9 @@
 <br><br>
 
 <h3>08/11/2023</h3>
-MEP de 3 catégories (Visiteurs, Utilisateurs, Administrateurs) dans les différentes parties du site<br>
-Adaptation du code sous-jacent<br>
+MEP de 3 catégories (Visiteurs, Utilisateurs, Administrateurs) dans les différentes parties du site.<br>
+Adaptation du code sous-jacent.<br>
+Création table utilisateurs en mySQL.<br>
 
 
 <br>
