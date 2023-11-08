@@ -50,8 +50,11 @@ try {
         case "registration":
             $visitorController->registrationPage();
             break;
-        case "forgotPassword":
+        case "forgot_password":
             $visitorController->forgotPassword();
+            break;
+        case "validation_login":
+            Tools::showArray($_POST);
             break;
         default:
             throw new Exception("La page demandée n'existe pas...");

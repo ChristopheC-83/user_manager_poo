@@ -152,7 +152,7 @@ p {
 
 .container {
   width: 94%;
-  margin: 80px auto;
+  margin: 20px auto;
   padding: 10px;
   max-width: 1600px;
 }
@@ -393,7 +393,7 @@ header h2 {
   display: flex;
   flex-direction: column;
   border-radius: 10px;
-  padding: 15px 10px;
+  margin-bottom: 10px;
 }
 .entryForm label {
   font-weight: bold;
@@ -419,17 +419,22 @@ header h2 {
 .entryForm button {
   width: clamp(250px, 30vw, 450px);
   border-radius: 10px;
+  margin: 30px 0 20px;
   padding: 10px;
   transition: all 0.15s;
   box-shadow: 0px 4px 4px 0px var(--shadow_1);
-  background-color: var(--components_3);
+  background-color: var(--border_3);
   color: var(--text_2);
+  font-weight: bold;
 }
 .entryForm button:hover {
   transform: translateY(3px);
   box-shadow: 0px 1px 1px 0px var(--shadow_1);
   color: var(--text_1);
-  background-color: var(--components_1);
+  background-color: var(--border_1);
+}
+.entryForm a {
+  margin: 10px;
 }
 .entryForm a h4 {
   color: var(--text_1);
