@@ -1,6 +1,5 @@
 <?php
 
-require_once("./controllers/Secure.controller.php");
 require_once("./controllers/Functions.controller.php");
 require_once("./controllers/Tools.controller.php");
 require_once("./models/Visitor/Visitor.model.php");

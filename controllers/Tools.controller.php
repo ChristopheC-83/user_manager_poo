@@ -16,4 +16,14 @@ abstract class Tools
             "type" => $type
         ];
     }
+
+    public static function secureHTML($string)
+    {
+        return htmlentities($string);
+    }
+
+    public static function isConnected()
+    {
+        return (!empty($_SESSION['profil']['login']));
+    }
 }

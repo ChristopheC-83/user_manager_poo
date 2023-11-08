@@ -442,6 +442,8 @@ header h2 {
 }
 .entryForm a h4 {
   color: var(--text_1);
+  text-shadow: none;
+  font-weight: bold;
 }
 .entryForm a h4:hover {
   color: var(--text_2);

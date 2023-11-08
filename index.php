@@ -9,14 +9,10 @@ define("URL", str_replace("index.php", "", (isset($_SERVER['HTTPS']) ? "https"  
     $_SERVER["PHP_SELF"]));
 
 
-// require_once("./controllers/Tools.controller.php");
-require_once("./controllers/Secure.controller.php");
-require_once("./controllers/Functions.controller.php");
-$functions = new Functions();
-require_once("./controllers/Secure.controller.php");
-$secure = new Secure();
 require_once("./controllers/Visitor/Visitor.controller.php");
+require_once("./controllers/User/User.controller.php");
 $visitorController = new VisitorController();
+$userController = new UserController();
 
 
 // l'index est le point d'entrée du site
@@ -57,7 +53,9 @@ try {
             break;
         case "validation_login":
             if (!empty($_POST['login']) && !empty($_POST['password'])) {
-                Tools::showArray($_POST);
+                $login = Tools::secureHTML($_POST['login']);
+                $password = Tools::secureHTML($_POST['password']);
+                $userController->validation_login($login, $password);
             } else {
                 Tools::alertMessage("Il faut remplir les 2 champs !", "orange");
                 header('Location: ' . URL . 'connection');

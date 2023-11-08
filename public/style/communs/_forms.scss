@@ -63,6 +63,8 @@
     margin: 10px;
     h4 {
       color: var(--text_1);
+      text-shadow: none;
+      font-weight: bold;
       &:hover {
         color: var(--text_2);
         transform : scale(1.02);
