@@ -13,8 +13,8 @@ require_once("./controllers/Functions.controller.php");
 $functions = new Functions();
 require_once("./controllers/Secure.controller.php");
 $secure = new Secure();
-require_once("./controllers/Main.controller.php");
-$mainController = new MainController();
+require_once("./controllers/Visitor/Visitor.controller.php");
+$visitorController = new VisitorController();
 
 
 // l'index est le point d'entrée du site
@@ -34,7 +34,7 @@ try {
 
     switch ($url[0]) {
         case "home":
-            $mainController->homePage();
+            $visitorController->homePage();
             break;
         case "theme":
             $themeChoisi = $secure->secureHTML($url[1]);
@@ -51,5 +51,5 @@ try {
             throw new Exception("La page demandée n'existe pas...");
     }
 } catch (Exception $msg) {
-    $mainController->errorPage($msg->getMessage());
+    $visitorController->errorPage($msg->getMessage());
 }

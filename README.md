@@ -1,13 +1,19 @@
 <h1> Reade Me </h1>
 <br><br>
+<br><br>
+
+<h3>08/11/2023</h3>
+MEP de 3 catégories (Visiteurs, Utilisateurs, Administrateurs) dans les différentes parties du site<br>
+Adaptation du code sous-jacent<br>
 
 
-<h3>11/07/2023</h3>
+<br>
+<h3>07/11/2023</h3>
 Ajout bouton "connexion".<br>
-PAssage des functions static en non static et création d'objets dans les fichiers nécessaires.<br>
+Passage des functions static en non static et création d'objets dans les fichiers nécessaires.<br>
 
-
-<h3>11/06/2023</h3>
+<br>
+<h3>06/11/2023</h3>
 Mise en place du projet.<br>
 Creation de la palette de couleurs de base.<br>
 Creation de la structure de developpement en php / mvc.<br>

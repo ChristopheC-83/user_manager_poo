@@ -6,7 +6,7 @@ if (empty($_GET['page'])) {
    $page = $url[0];
 }
 
-require_once("./controllers/Main.controller.php");
+require_once("./models/MainManager.model.php");
 $mainManager = new MainManager();
 $themes = $mainManager-> getThemes();
 

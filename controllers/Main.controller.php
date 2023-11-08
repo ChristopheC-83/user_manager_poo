@@ -1,26 +1,25 @@
 <?php
 
-require_once("./models/MainManager.model.php");
-
 require_once("./controllers/Functions.controller.php");
 
 
 
-class MainController
+abstract class MainController
 {
 
     // l'injection de cette dépendance permet d'utiliser 
     // dans les controller en charge d'afficher les pages les fonctions :
     // genererPage, afficherTableau, ajouterMessageAlerte
-    // private $functions;
-    private $mainManager;
-    private $functions;
+
+    protected $functions;
     public function __construct()
     {
-        $this->mainManager = new MainManager(); // de MainManager.model.php
-        $this->functions = new Functions(); 
+        $this->functions = new Functions();
     }
-    // mainController répertorie les pages avec leurs infos respectives
+
+
+    // homePage et errorPage sont communes à tous les visitors, users et admin
+    //à rappeler dans les classes enfa,ts si besoin de personnaliser
 
     public function homePage()
     {
@@ -35,6 +34,7 @@ class MainController
         ];
         $this->functions->generatePage($data_page);
     }
+
     public function errorPage($msg)
     {
 
@@ -47,5 +47,4 @@ class MainController
         ];
         $this->functions->generatePage($data_page);
     }
-   
 }
