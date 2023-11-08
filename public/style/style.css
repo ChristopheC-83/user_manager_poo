@@ -158,6 +158,7 @@ p {
 }
 .container h1 {
   text-align: center;
+  margin-bottom: 40px;
 }
 
 @media screen and (max-width: 1200px) {
@@ -373,21 +374,28 @@ header h2 {
 }
 
 .containerForm {
-  display: flex;
-  flex-direction: column;
   margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 10px;
+  border: 3px solid var(--border_3);
+  background-color: var(--bg_1);
+  box-shadow: 1px 1px 15px 5px var(--shadow_1);
+  padding: 20px;
 }
 
 .entryForm {
+  margin: 0 auto;
+  width: -moz-fit-content;
+  width: fit-content;
   display: flex;
   flex-direction: column;
-  border: 5px solid black;
   border-radius: 10px;
   padding: 15px 10px;
-  background: linear-gradient(34deg, rgba(234, 0, 255, 0.9) 0%, rgba(238, 184, 6, 0.9) 80%);
 }
 .entryForm label {
-  color: black;
   font-weight: bold;
   padding-bottom: 5px;
   font-size: clamp(16px, 14px + 0.6vw, 20px);
@@ -396,46 +404,39 @@ header h2 {
 .entryForm input,
 .entryForm select,
 .entryForm textarea {
-  width: 100%;
+  width: clamp(300px, 50vw, 800px);
   border-radius: 5px;
-  padding: 5px;
+  padding: 10px;
   outline: none;
+  background-color: var(--components_3);
+  color: var(--text_2);
+  font-size: clamp(16px, 14px + 0.6vw, 20px);
+  line-height: clamp(20px, 20px + 1vw, 33px);
 }
 .entryForm .texteArticle {
   min-height: 150px;
 }
 .entryForm button {
-  width: clamp(250px, 50%, 80%);
-  font-size: 30px;
+  width: clamp(250px, 30vw, 450px);
   border-radius: 10px;
-  margin: 0 auto;
   padding: 10px;
-  transition: all 0.3s;
-}
-.entryForm button p {
-  background-clip: text;
-  -webkit-background-clip: text;
-  background-image: linear-gradient(34deg, rgb(234, 0, 255) 0%, rgb(238, 184, 6) 80%);
-  color: transparent;
-  font-size: clamp(20px, 20px + 1vw, 29px);
-  letter-spacing: calc(1px + 0.02vw);
-  font-weight: bold;
+  transition: all 0.15s;
+  box-shadow: 0px 4px 4px 0px var(--shadow_1);
+  background-color: var(--components_3);
+  color: var(--text_2);
 }
 .entryForm button:hover {
+  transform: translateY(3px);
+  box-shadow: 0px 1px 1px 0px var(--shadow_1);
+  color: var(--text_1);
+  background-color: var(--components_1);
+}
+.entryForm a h4 {
+  color: var(--text_1);
+}
+.entryForm a h4:hover {
+  color: var(--text_2);
   transform: scale(1.02);
-  background-color: white;
-}
-
-.table {
-  width: 100%;
-  padding: 10px;
-  padding-bottom: 20px;
-  margin: 10px;
-  border-radius: 10px;
-}
-.table h3 {
-  margin: 10px;
-  margin-left: 50px;
 }
 
 .body {

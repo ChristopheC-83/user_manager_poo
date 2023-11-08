@@ -1,81 +1,69 @@
 .containerForm {
-    display: flex;
-    flex-direction: column;
-    margin: 0 auto;
+  margin: 0 auto;
+  @include flexMid;
+  flex-direction: column;
+  border-radius: 10px;
+  border: 3px solid var(--border_3);
+  background-color: var(--bg_1);
+  box-shadow: 1px 1px 15px 5px var(--shadow_1);
+  padding: 20px;
+}
+
+.entryForm {
+  margin: 0 auto;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  padding: 15px 10px;
+
+  label {
+    font-weight: bold;
+    padding-bottom: 5px;
+    font-size: clamp(16px, calc(14px + 0.6vw), 20px);
+    line-height: clamp(20px, calc(20px + 1vw), 33px);
   }
-  
-  .entryForm {
-    display: flex;
-    flex-direction: column;
-    border: 5px solid black;
-    border-radius: 10px;
-    padding: 15px 10px;
-    background: linear-gradient(
-      34deg,
-      rgba(234, 0, 255, 0.9) 0%,
-      rgba(238, 184, 6, 0.9) 80%
-    );
-  
-    label {
-      color: black;
-      font-weight: bold;
-      padding-bottom: 5px;
-      font-size: clamp(16px, calc(14px + 0.6vw), 20px);
-      line-height: clamp(20px, calc(20px + 1vw), 33px);
-    }
-  
-    input,
-    select,
-    textarea {
-      width: 100%;
-      border-radius: 5px;
-      padding: 5px;
-      outline: none;
-    }
-  
-    .texteArticle {
-      min-height: 150px;
-    }
-  
-    button {
-      width: clamp(250px, 50%, 80%) ;
-      font-size: 30px;
-      border-radius: 10px;
-      margin: 0 auto;
-      padding: 10px;
-      transition: all 0.3s;
-  
-      p {
-        background-clip: text;
-        -webkit-background-clip: text;
-        background-image: linear-gradient(
-          34deg,
-          rgb(234, 0, 255) 0%,
-          rgb(238, 184, 6) 80%
-        );
-        color: transparent;
-        font-size: clamp(20px, calc(20px + 1vw), 29px);
-        letter-spacing: calc(1px + 0.02vw);
-        font-weight: bold;
-      }
-  
-      &:hover {
-        transform: scale(1.02);
-        background-color: white;
-      }
-    }
-  }
-  
-  .table {
-    width: 100%;
+
+  input,
+  select,
+  textarea {
+    width: clamp(300px, 50vw, 800px);
+    border-radius: 5px;
     padding: 10px;
-    padding-bottom: 20px;
-    margin: 10px;
+    outline: none;
+    background-color: var(--components_3);
+    color: var(--text_2);
+    font-size: clamp(16px, calc(14px + 0.6vw), 20px);
+    line-height: clamp(20px, calc(20px + 1vw), 33px);
+  }
+
+  .texteArticle {
+    min-height: 150px;
+  }
+
+  button {
+    width: clamp(250px, 30vw, 450px);
     border-radius: 10px;
-  
-    h3 {
-      margin: 10px;
-      margin-left: 50px;
+    padding: 10px;
+    transition: all 0.15s;
+    box-shadow: 0px 4px 4px 0px var(--shadow_1);
+    background-color: var(--components_3);
+    color: var(--text_2);
+
+    &:hover {
+      transform: translateY(3px);
+      box-shadow: 0px 1px 1px 0px var(--shadow_1);
+      color: var(--text_1);
+      background-color: var(--components_1);
     }
   }
-  
+  a {
+    h4 {
+      color: var(--text_1);
+      &:hover {
+        color: var(--text_2);
+        transform : scale(1.02);
+      }
+    }
+  }
+}

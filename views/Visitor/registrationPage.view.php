@@ -1,5 +1,5 @@
 <div class="container">
-    <h1>Connexion</h1>
+    <h1>Création d'un Compte</h1>
 
     <form action="<?= URL ?>validation_login" method="POST" class="containerForm">
 

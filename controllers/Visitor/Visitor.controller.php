@@ -25,4 +25,26 @@ class VisitorController extends MainController
         ];
         $this->functions->generatePage($data_page);
     }
+    public function registrationPage()
+    {
+        $data_page = [
+            "page_description" => "Page de connexion",
+            "page_title" => "Page de connexion",
+            "view" => "views/Visitor/registrationPage.view.php",
+            "template" => "views/templates/template.php",
+
+        ];
+        $this->functions->generatePage($data_page);
+    }
+    public function forgotPassword()
+    {
+        $data_page = [
+            "page_description" => "Page de connexion",
+            "page_title" => "Page de connexion",
+            "view" => "views/Visitor/forgotPassword.view.php",
+            "template" => "views/templates/template.php",
+
+        ];
+        $this->functions->generatePage($data_page);
+    }
 }
