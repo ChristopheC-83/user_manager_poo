@@ -27,7 +27,9 @@ class UserController extends MainController
                 header('Location: ' . URL . 'home');
                 // header('Location: ' . URL . 'account/profile');
             } else {
-                Tools::alertMessage("Compte en attente validation", "orange");
+                Tools::alertMessage("Compteen attente validation", "orange");
+                $msg = "<a href='resendValidationMail/" . $login . "'>=> Renvoyer le mail de validation <=</a> ";
+                Tools::alertMessage($msg, "orange");
                 header('Location: ' . URL . 'connection');
             }
         } else {
@@ -60,17 +62,33 @@ class UserController extends MainController
             header('Location: ' . URL . 'home');
         }
     }
+    private function sendMailValidation($login, $mail, $account_key)
+    {
+        $urlValidation = URL . "mailValidationAccount/" . $login . "/" . $account_key;
+        $sujet = "Validez Compte Barpat";
+        $message = "Validez votre compte sur le blog de Barpat ! Nous t'attendons ! Cliquez sur :" . $urlValidation;
+        Tools::sendMail($mail, $sujet, $message);
+    }
+
+    public function resendValidationMail($login){
+        
+        $datasUser = $this->userManager->getUserInfo($login);
+        $this->sendMailValidation($login, $datasUser['mail'], $datasUser['account_key']);
+        Tools::alertMessage("Mail de validation renvoyé !", "green");
+        header('Location: ' . URL . 'connection');
+    }
     private function registerAccount($login, $password, $mail, $account_key)
     {
         if ($this->userManager->registerAccountDB($login, $password, $mail, $account_key)) {
-            Tools::alertMessage("Compte créé !", "green");
+            $this->sendMailValidation($login, $mail, $account_key);
+            Tools::alertMessage("Compte créé ! Lien de validation envoyé par mail.", "green");
             header('Location: ' . URL . 'home');
         } else {
             Tools::alertMessage("La création a échoué, Réessayez !", "rouge");
             header('Location: ' . URL . 'registration');
         }
     }
-    public function validation_registration($login, $password, $mail)
+    public function validationRegistration($login, $password, $mail)
     {
         if ($this->userManager->isLoginFree($login)) {
             $passwordCrypt = password_hash($password, PASSWORD_DEFAULT);

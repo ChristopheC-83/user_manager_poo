@@ -31,7 +31,7 @@ $themes = $visitorController->getThemes();
       </a>
    <?php endforeach ?>
 
-   <?php if (empty($_SESSION['profile'])) : ?>
+   <?php if (empty($_SESSION['profile']['login'])) : ?>
 
       <a href="<?= URL ?>connection" class="btnTheme all_themes connection 
       <?= $url[0] === 'connection' ? 'selected_theme' : '';

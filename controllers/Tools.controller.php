@@ -16,14 +16,21 @@ abstract class Tools
             "type" => $type
         ];
     }
-
     public static function secureHTML($string)
     {
         return htmlentities($string);
     }
-
     public static function isConnected()
     {
         return (!empty($_SESSION['profile']));
+    }
+    public static function sendMail($to, $subject, $message)
+    {
+        $headers = "From : christophe@barpat.fun";
+        if (mail($to, $subject, $message, $headers)) {
+            Tools::alertMessage("Mail envoyé.", "green");
+        } else {
+            Tools::alertMessage("Mail non envoyé.", "red");
+        }
     }
 }

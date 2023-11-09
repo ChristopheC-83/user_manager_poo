@@ -53,12 +53,20 @@ try {
                 $login = Tools::secureHTML($_POST['login']);
                 $password = Tools::secureHTML($_POST['password']);
                 $mail = Tools::secureHTML($_POST['mail']);
-                $userController->validation_registration($login, $password, $mail);
+                $userController->validationRegistration($login, $password, $mail);
             } else{
                 Tools::alertMessage("Il faut remplir les 3 champs !", "orange");
                 header('Location: ' . URL . 'registration');
             }
+            break;
 
+        case "mailValidationAccount":
+                echo "test";
+
+            break;
+        case "resendValidationMail":
+            $login = Tools::secureHTML($url[1]);
+            $userController->resendValidationMail($login);
 
             break;
         case "forgot_password":

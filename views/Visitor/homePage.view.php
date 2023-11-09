@@ -7,7 +7,6 @@
     <p>mot de passe crypté</p>
     <?= $pws_hash  ?>
     <br>
-    <?= Tools::showArray($users)  ?>
     <br>
     <?= Tools::showArray($_SESSION)  ?>
 
