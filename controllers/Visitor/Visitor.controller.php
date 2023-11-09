@@ -5,7 +5,6 @@ require_once("./models/Visitor/Visitor.model.php");
 
 class VisitorController extends MainController
 {
-
     public $visitorManager;
     public $functions;
     public function __construct()
@@ -13,7 +12,6 @@ class VisitorController extends MainController
         $this->functions = new Functions();
         $this->visitorManager = new VisitorManager();
     }
-
     public function connectionPage()
     {
         $data_page = [
@@ -28,8 +26,8 @@ class VisitorController extends MainController
     public function registrationPage()
     {
         $data_page = [
-            "page_description" => "Page de connexion",
-            "page_title" => "Page de connexion",
+            "page_description" => "Page de création de compte",
+            "page_title" => "Page de création de compte",
             "view" => "views/Visitor/registrationPage.view.php",
             "template" => "views/templates/template.php",
 
@@ -39,13 +37,12 @@ class VisitorController extends MainController
     public function forgotPassword()
     {
         $data_page = [
-            "page_description" => "Page de connexion",
-            "page_title" => "Page de connexion",
+            "page_description" => "Mot de passe oublié ?",
+            "page_title" => "Mot de passe oublié ?",
             "view" => "views/Visitor/forgotPassword.view.php",
             "template" => "views/templates/template.php",
 
         ];
         $this->functions->generatePage($data_page);
     }
-
 }

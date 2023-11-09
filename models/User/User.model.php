@@ -21,10 +21,6 @@ class UserManager extends MainManager
         $passwordDB = $this->getPasswordUser($login);
         return password_verify($password, $passwordDB);
     }
-
-
-
-
     public function isAccountValidated($login)
     {
         $req = "SELECT is_valid FROM users WHERE login = :login";
@@ -35,7 +31,6 @@ class UserManager extends MainManager
         $stmt->closeCursor();
         return ((int)$resultat['is_valid'] === 1 ? true : false);
     }
-
     public function getUserInfo($login)
     {
         $req = "SELECT * FROM users WHERE login = :login";
@@ -46,5 +41,24 @@ class UserManager extends MainManager
         $stmt->closeCursor();
         return $resultat;
     }
+    public function isLoginFree($login)
+    {
+        return (empty($this->getUserInfo($login)));
+    }
 
+    public function registerAccountDB($login, $password, $mail, $account_key)
+    {
+        $req = "INSERT INTO users (login, password, mail, is_valid, role, account_key, avatar)
+        VALUES(:login, :password, :mail, 0, 'user', :account_key, '')
+        ";
+        $stmt = $this->getBDD()->prepare($req);
+        $stmt->bindValue(":login", $login, PDO::PARAM_STR);
+        $stmt->bindValue(":password", $password, PDO::PARAM_STR);
+        $stmt->bindValue(":mail", $mail, PDO::PARAM_STR);
+        $stmt->bindValue(":account_key", $account_key, PDO::PARAM_INT);
+        $stmt->execute();
+        $isCreate = ($stmt->rowCount() > 0);
+        $stmt->closeCursor();
+        return $isCreate;
+    }
 }

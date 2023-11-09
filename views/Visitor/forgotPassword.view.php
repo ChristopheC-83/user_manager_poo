@@ -21,13 +21,13 @@
 
         <div class="entryForm">
             <a href="<?= URL ?>registration">
-                <h4>En fait, je n'ai pas de compte. Je m'enregistre ICI.</h4>
+                <h4>En fait, je n'ai pas de compte. Je veux le créer !</h4>
             </a>
         </div>
 
         <div class="entryForm">
             <a href="<?= URL ?>connection">
-                <h4>Je m'en souviens! Je m'enregistre L&Agrave; !</h4>
+                <h4>Je m'en souviens ! Je me connecte ICI !</h4>
             </a>
         </div>
 

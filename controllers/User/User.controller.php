@@ -15,10 +15,8 @@ class UserController extends MainController
         $this->functions = new Functions();
         $this->userManager = new UserManager();
     }
-
     public function validation_login($login, $password)
     {
-
         $datasUser = $this->userManager->getUserInfo($login);
         $_SESSION['profile']['role'] =  $datasUser['role'];
 
@@ -37,10 +35,8 @@ class UserController extends MainController
             header('Location: ' . URL . 'connection');
         }
     }
-
     public function profilePage()
     {
-
         $datasUser = $this->userManager->getUserInfo($_SESSION['profile']['login']);
 
         $data_page = [
@@ -53,7 +49,6 @@ class UserController extends MainController
         ];
         $this->functions->generatePage($data_page);
     }
-
     public function logout()
     {
         unset($_SESSION['profile']);
@@ -63,6 +58,27 @@ class UserController extends MainController
         } else {
             Tools::alertMessage("Vous êtes bien déconnecté(e).", "green");
             header('Location: ' . URL . 'home');
+        }
+    }
+    private function registerAccount($login, $password, $mail, $account_key)
+    {
+        if ($this->userManager->registerAccountDB($login, $password, $mail, $account_key)) {
+            Tools::alertMessage("Compte créé !", "green");
+            header('Location: ' . URL . 'home');
+        } else {
+            Tools::alertMessage("La création a échoué, Réessayez !", "rouge");
+            header('Location: ' . URL . 'registration');
+        }
+    }
+    public function validation_registration($login, $password, $mail)
+    {
+        if ($this->userManager->isLoginFree($login)) {
+            $passwordCrypt = password_hash($password, PASSWORD_DEFAULT);
+            $account_key = rand(0, 999999);
+            $this->registerAccount($login, $passwordCrypt, $mail, $account_key);
+        } else {
+            Tools::alertMessage("Pseudo déjà pris. Il faut en choisir un autre !", "orange");
+            header('Location: ' . URL . 'registration');
         }
     }
 }

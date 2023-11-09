@@ -20,13 +20,13 @@
 
         <div class="entryForm">
             <a href="<?= URL ?>registration">
-                <h4>Pas de compte ? Cliquez ICI !</h4>
+                <h4>Je crée mon compte pour interagir avec tout le monde !</h4>
             </a>
         </div>
 
         <div class="entryForm">
             <a href="<?= URL ?>forgot_password">
-                <h4>Mot de passe oublié ? Cliquez L&Agrave;!</h4>
+                <h4>J'ai oublié mon mot de passe !</h4>
             </a>
         </div>
     </form>

@@ -48,6 +48,19 @@ try {
         case "registration":
             $visitorController->registrationPage();
             break;
+        case "validation_registration":
+            if (!empty($_POST['login']) && !empty($_POST['password']) && !empty($_POST['mail'])) {
+                $login = Tools::secureHTML($_POST['login']);
+                $password = Tools::secureHTML($_POST['password']);
+                $mail = Tools::secureHTML($_POST['mail']);
+                $userController->validation_registration($login, $password, $mail);
+            } else{
+                Tools::alertMessage("Il faut remplir les 3 champs !", "orange");
+                header('Location: ' . URL . 'registration');
+            }
+
+
+            break;
         case "forgot_password":
             $visitorController->forgotPassword();
             break;

@@ -8,7 +8,10 @@
 
 <h3>09/11/2023</h3>
 Mise en place des boutons profils/déconnexion.<br>
-Formulaire login foncitonnel.<br>
+Formulaire login fonctionnel.<br>
+Vérification connexion pour accès aux différentes parties du site.<br>
+<br>
+<br>
 
 <br>
 <h3>08/11/2023</h3>

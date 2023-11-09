@@ -1,7 +1,7 @@
 <div class="container">
     <h1>Création d'un Compte</h1>
 
-    <form action="<?= URL ?>#################" method="POST" class="containerForm">
+    <form action="<?= URL ?>validation_registration" method="POST" class="containerForm">
 
         <div class="entryForm">
             <label for="login">Pseudo</label>
@@ -13,10 +13,12 @@
             <input type="password" name="password" id="password">
         </div>
 
-        <div class="entryForm">
-            <label for="password_verification">Vérification Mot de Passe</label>
+
+        <!-- si besoin -->
+        <!-- <div class="entryForm">
+            <label for="password_verification">Vérification du Mot de Passe</label>
             <input type="password" name="password_verification" id="password_verification">
-        </div>
+        </div> -->
 
         <div class="entryForm">
             <label for="mail">Adresse Mail</label>
