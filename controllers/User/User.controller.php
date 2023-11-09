@@ -31,4 +31,16 @@ class UserController extends MainManager
             header('Location: ' . URL . 'connection');
         }
     }
+
+    public function logout()
+    {
+        unset($_SESSION['profile']);
+        if ($_SESSION['profile']) {
+            Tools::alertMessage("LA déconnexion a échoué.", "red");
+            header('Location: ' . URL . 'home');
+        } else {
+            Tools::alertMessage("Vous êtes bien déconnecté(e).", "green");
+            header('Location: ' . URL . 'home');
+        }
+    }
 }

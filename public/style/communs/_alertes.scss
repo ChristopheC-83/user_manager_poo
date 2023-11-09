@@ -9,6 +9,7 @@
   @include flexMid;
   font-weight: bold;
   border-radius: 10px;
+  box-shadow:  2px 2px 10px var(--shadow_1);
   h3 {
     font-weight: bold;
     text-shadow: 2px 2px 4px var(--bg_1);

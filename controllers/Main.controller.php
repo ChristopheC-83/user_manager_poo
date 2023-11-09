@@ -27,15 +27,15 @@ abstract class MainController
 
     public function homePage()
     {
-        $psw_hash = $this->functions->hashFunction("kiki");
-        $users = $this->visitorManager->getUsers();
+        $psw_hash = $this->functions->hashFunction("kiki");  // A enlever
+        $users = $this->visitorManager->getUsers();          // A enlever
 
         $data_page = [
             "page_description" => "Description accueil",
             "page_title" => "titre accueil",
             "view" => "views/Visitor/homePage.view.php",
-            "pws_hash" => $psw_hash,
-            "users" => $users,
+            "pws_hash" => $psw_hash,                             // A enlever
+            "users" => $users,                                   // A enlever
             "template" => "views/templates/template.php",
 
         ];

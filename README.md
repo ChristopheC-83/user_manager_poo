@@ -2,11 +2,19 @@
 <br><br>
 <br><br>
 
+
+
+
+
+<h3>09/11/2023</h3>
+Mise en place des boutons profils/déconnexion.<br>
+Formulaire login foncitonnel.<br>
+
+<br>
 <h3>08/11/2023</h3>
 MEP de 3 catégories (Visiteurs, Utilisateurs, Administrateurs) dans les différentes parties du site.<br>
 Adaptation du code sous-jacent.<br>
 Création table utilisateurs en mySQL.<br>
-
 
 <br>
 <h3>07/11/2023</h3>

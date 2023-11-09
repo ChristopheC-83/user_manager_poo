@@ -31,7 +31,18 @@ $themes = $visitorController->getThemes();
       </a>
    <?php endforeach ?>
 
-   <?php if ($_SESSION['profile']['login']) : ?>
+   <?php if (empty($_SESSION['profile'])) : ?>
+
+      <a href="<?= URL ?>connection" class="btnTheme all_themes connection 
+      <?= $url[0] === 'connection' ? 'selected_theme' : '';
+      ?>
+   ">
+         <p>Connexion</p>
+      </a>
+
+
+
+   <?php else : ?>
 
       <div class="profilLogOut">
 
@@ -40,15 +51,6 @@ $themes = $visitorController->getThemes();
          <a href="<?= URL ?>account/logout"><i class="fa-solid fa-right-from-bracket"></i></a>
 
       </div>
-
-   <?php else : ?>
-
-      <a href="<?= URL ?>connection" class="btnTheme all_themes connection 
-      <?= $url[0] === 'connection' ? 'selected_theme' : '';
-      ?>
-   ">
-         <p>Connexion</p>
-      </a>
    <?php endif ?>
 
 </div>

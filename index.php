@@ -61,6 +61,20 @@ try {
                 header('Location: ' . URL . 'connection');
             }
 
+            // ###########################
+            // Si utilisateur connecté  //
+            // ########################### 
+
+        case "account":
+            switch ($url[1]) {
+                case "profile":
+                    $userController->profilePage();
+                    break;
+                case "logout":
+                    $userController->logout();
+                    break;
+                    
+            }
             break;
         default:
             throw new Exception("La page demandée n'existe pas...");

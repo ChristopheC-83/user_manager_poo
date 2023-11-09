@@ -259,6 +259,7 @@ p {
   align-items: center;
   font-weight: bold;
   border-radius: 10px;
+  box-shadow: 2px 2px 10px var(--shadow_1);
 }
 .alert h3 {
   font-weight: bold;
