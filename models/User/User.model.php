@@ -36,4 +36,15 @@ class UserManager extends MainManager
         return ((int)$resultat['is_valid'] === 1 ? true : false);
     }
 
+    public function getUserInfo($login)
+    {
+        $req = "SELECT * FROM users WHERE login = :login";
+        $stmt = $this->getBDD()->prepare($req);
+        $stmt->bindValue(":login", $login, PDO::PARAM_STR);
+        $stmt->execute();
+        $resultat = $stmt->fetch(PDO::FETCH_ASSOC);
+        $stmt->closeCursor();
+        return $resultat;
+    }
+
 }

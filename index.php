@@ -60,20 +60,23 @@ try {
                 Tools::alertMessage("Il faut remplir les 2 champs !", "orange");
                 header('Location: ' . URL . 'connection');
             }
-
-            // ###########################
-            // Si utilisateur connecté  //
-            // ########################### 
+            break;
 
         case "account":
-            switch ($url[1]) {
-                case "profile":
-                    $userController->profilePage();
-                    break;
-                case "logout":
-                    $userController->logout();
-                    break;
-                    
+            if (!Tools::isConnected()) {
+                Tools::alertMessage("Vous devez vous connecter pour accéder à cet espace.", "red");
+                header('Location: ' . URL . 'home');
+            } else {
+                switch ($url[1]) {
+                    case "profile":
+                        $userController->profilePage();
+                        break;
+                    case "logout":
+                        $userController->logout();
+                        break;
+                    default:
+                        throw new Exception("La page demandée n'existe pas...");
+                }
             }
             break;
         default:

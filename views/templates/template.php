@@ -50,8 +50,8 @@
     <?php endif ?>
 
 
-    <script src="./public/javascript/alert.js"></script>
-    <script src="./public/javascript/darkMode.js"></script>
+    <script src="<?= URL ?>public/javascript/alert.js"></script>
+    <script src="<?= URL ?>public/javascript/darkMode.js"></script>
 </body>
 
 </html>

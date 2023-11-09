@@ -24,6 +24,6 @@ abstract class Tools
 
     public static function isConnected()
     {
-        return (!empty($_SESSION['profil']['login']));
+        return (!empty($_SESSION['profile']));
     }
 }

@@ -1,5 +1,7 @@
 const darkModeBtn = document.querySelector("#darkMode");
-const isDarkModeStored = localStorage.getItem("darkMode");
+const isDarkModeStored = localStorage.getItem("darkMode")
+  ? localStorage.getItem("darkMode")
+  : localStorage.setItem("darkMode", false);
 let stateDarkMode = isDarkModeStored;
 
 function setUpDarkMode(bool) {
@@ -12,32 +14,17 @@ function setUpDarkMode(bool) {
   darkModeBtn.checked = bool;
 }
 
-if (isDarkModeStored != null) {
-  if (isDarkModeStored === "true") {
-    setUpDarkMode(true);
-    colorGoingDark()
-  } else {
-    setUpDarkMode(false);
-    colorGoingLight();
-  }
-} else {
-  localStorage.setItem("darkMode", false);
-  setUpDarkMode(false);
-}
-
 function toggleDarkMode() {
   document.body.classList.toggle("darkMode");
   stateDarkMode = !stateDarkMode;
   localStorage.setItem("darkMode", stateDarkMode);
   darkModeBtn.checked = stateDarkMode;
   if (stateDarkMode) {
-    colorGoingDark()
+    colorGoingDark();
   } else {
-    colorGoingLight()
+    colorGoingLight();
   }
 }
-
-darkModeBtn.addEventListener("change", toggleDarkMode);
 
 function colorGoingDark() {
   document.documentElement.style.setProperty("--bg_1", "#181118");
@@ -71,3 +58,13 @@ function colorGoingLight() {
   document.documentElement.style.setProperty("--overlay", "#33333390");
   document.documentElement.style.setProperty("--shadow_1", "#333333");
 }
+
+if (isDarkModeStored === "true") {
+  setUpDarkMode(true);
+  colorGoingDark();
+} else {
+  setUpDarkMode(false);
+  colorGoingLight();
+}
+
+darkModeBtn.addEventListener("change", toggleDarkMode); 

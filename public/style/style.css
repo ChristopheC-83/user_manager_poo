@@ -263,7 +263,7 @@ p {
 }
 .alert h3 {
   font-weight: bold;
-  text-shadow: 2px 2px 4px var(--bg_1);
+  text-shadow: 1px 1px 2px var(--bg_2);
 }
 
 .red {

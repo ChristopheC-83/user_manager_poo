@@ -11,4 +11,6 @@
     <br>
     <?= Tools::showArray($_SESSION)  ?>
 
+    <?=Tools::isConnected()? "true" : "false"?>
+
 </div>
