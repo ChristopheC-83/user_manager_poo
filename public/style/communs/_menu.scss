@@ -52,8 +52,6 @@
   }
 }
 
-
-
 .selected_theme {
   &::before {
     transform: translate(-50%, -50%);
@@ -68,5 +66,23 @@
     padding-top: 2vh;
     justify-content: start;
     gap: 3vh;
+  }
+}
+.profilLogOut {
+  width: 180px;
+  height: 50px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  font-size: clamp(20px, calc(20px + 1vw), 29px);
+  transition: all 0.3s;
+  a {
+    color: var(--text_2);
+    text-shadow: 1px 1px 3px var(--shadow_1);
+    &:hover {
+      transform: scale(1.02);
+      color: var(--text_1);
+    }
   }
 }

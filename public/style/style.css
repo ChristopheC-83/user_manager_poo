@@ -249,7 +249,7 @@ p {
   position: absolute;
   top: 10px;
   left: 50%;
-  width: 60%;
+  width: 80%;
   transform: translate(-50%, -50%);
   height: -moz-fit-content;
   height: fit-content;
@@ -291,6 +291,7 @@ header {
   position: fixed;
   top: 0;
   padding-bottom: 80px;
+  padding-top: 40px;
 }
 header h2 {
   text-align: center;
@@ -365,6 +366,25 @@ header h2 {
     gap: 3vh;
   }
 }
+.profilLogOut {
+  width: 180px;
+  height: 50px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  font-size: clamp(20px, 20px + 1vw, 29px);
+  transition: all 0.3s;
+}
+.profilLogOut a {
+  color: var(--text_2);
+  text-shadow: 1px 1px 3px var(--shadow_1);
+}
+.profilLogOut a:hover {
+  transform: scale(1.02);
+  color: var(--text_1);
+}
+
 .containing {
   flex-grow: 1;
   display: flex;
