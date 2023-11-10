@@ -2,6 +2,10 @@
     <h1><?= $datasUser['login'] ?> : votre page de Profil.</h1>
 
     <div class="containerForm">
+        <div class="avatarContainer">
+            <img src="<?=URL?>public/assets/images/avatars/<?= $datasUser['avatar'] ?>" alt="user's avatar" class="profil_avatar">
+            <a href=""><i class="fa-solid fa-repeat" id="btnModifyAvatar"></i></a>
+        </div>
         <div class="blockProfile" id="blockModifyMail">
             <div class="infoProfile">
                 <p><b>Votre adresse mail : </b></p>
@@ -30,7 +34,7 @@
         </div>
         <div class="infoProfile">
             <div class="modifyPasswordPage">
-                <div class="btnModifyPasswordPage"id="openModalDeleteAcount">
+                <div class="btnModifyPasswordPage" id="openModalDeleteAcount">
                     <p>Je veux supprimer mon compte.</p>
                 </div>
             </div>
@@ -43,7 +47,7 @@
                     <p>Suppression définitive validée.</p>
                 </a>
             </div>
-            <div class="btnModifyPasswordPage"id="closeModalDeleteAcount">
+            <div class="btnModifyPasswordPage" id="closeModalDeleteAcount">
                 <h4>Annulez ! Je reste !</h4>
             </div>
         </div>

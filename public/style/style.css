@@ -599,6 +599,21 @@ header h2 {
   margin: 20px;
 }
 
+.avatarContainer {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: end;
+}
+
+.profil_avatar {
+  width: 25vw;
+  height: 25vw;
+  max-width: 200px;
+  max-height: 200px;
+  border-radius: 50%;
+  box-shadow: 2px 2px 20px 5px var(--shadow_1);
+}
+
 .erreurPassword {
   color: red;
   text-shadow: none;

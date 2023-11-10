@@ -69,7 +69,6 @@ class UserController extends MainController
         $message = "Validez votre compte sur le blog de Barpat ! Nous t'attendons ! Cliquez sur :" . $urlValidation;
         Tools::sendMail($mail, $sujet, $message);
     }
-
     public function resendValidationMail($login)
     {
 
@@ -80,7 +79,8 @@ class UserController extends MainController
     }
     private function registerAccount($login, $password, $mail, $account_key)
     {
-        if ($this->userManager->registerAccountDB($login, $password, $mail, $account_key)) {
+        $avatar = URL . "public/assets/images/avatars/site/astroshiba.jpg";
+        if ($this->userManager->registerAccountDB($login, $password, $mail, $account_key, $avatar)) {
             $this->sendMailValidation($login, $mail, $account_key);
             Tools::alertMessage("Compte créé ! Lien de validation envoyé par mail.", "green");
             header('Location: ' . URL . 'home');

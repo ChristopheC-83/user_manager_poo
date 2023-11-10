@@ -8,9 +8,9 @@
 
 <h3>10/11/2023</h3>
 Validation du compte par lien envoyé sur boite mail.<br>
-MEP possibilité changement mail<br>
-<br>
-<br>
+MEP possibilité changement mail.<br>
+Possibilité de changer d emot de passe.<br>
+Possibilité de supprimer son compte.<br>
 <br>
 <br>
 
