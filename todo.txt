@@ -1,4 +1,5 @@
 - disparition des alertes plus smooth...(remonte en réduisant et opacité baisse)
 apparition aussi (descentes à sa place...)
 
--
+- les alertes ne sont pas indépendantes les une des autres.
+C'est une div qui les contient.... ça permet de les placer les unes par rapport aux autres.

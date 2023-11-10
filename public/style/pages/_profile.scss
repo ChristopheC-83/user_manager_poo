@@ -1,0 +1,68 @@
+.infoProfile {
+  width: clamp(300px, 50vw, 800px);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+  height: 35px;
+  i {
+    font-size: clamp(18px, calc(14px + 0.7vw), 22px);
+    cursor: pointer;
+  }
+  transition: all 0.33s;
+}
+
+
+.decompressed {
+  transform: translateX(-100%);
+  opacity: 0;
+  animation: decomp 0.33s forwards;
+}
+
+@keyframes decomp {
+  to {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+.compressed {
+  transform: translateX(0%);
+  opacity: 1;
+  animation: comp 0.33s forwards;
+}
+
+@keyframes comp {
+  to {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+.bigBlock {
+  animation: bigg 0.33s linear forwards;
+}
+@keyframes bigg {
+  12% {
+    height: 60px;
+  }
+  25% {
+    height: 85px;
+  }
+  37% {
+    height: 110px;
+  }
+  50% {
+    height: 135px;
+  }
+  67% {
+    height: 160px;
+  }
+  75% {
+    height: 185px;
+  }
+  87% {
+    height: 210px;
+  }
+  100% {
+    height: 235px;
+  }
+}

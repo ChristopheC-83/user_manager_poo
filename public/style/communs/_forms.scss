@@ -7,6 +7,7 @@
   background-color: var(--bg_1);
   box-shadow: 1px 1px 15px 5px var(--shadow_1);
   padding: 20px;
+  overflow: hidden;
 }
 
 .entryForm {
@@ -67,8 +68,10 @@
       font-weight: bold;
       &:hover {
         color: var(--text_2);
-        transform : scale(1.02);
+        transform: scale(1.02);
       }
     }
   }
 }
+
+

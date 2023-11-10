@@ -54,20 +54,20 @@ try {
                 $password = Tools::secureHTML($_POST['password']);
                 $mail = Tools::secureHTML($_POST['mail']);
                 $userController->validationRegistration($login, $password, $mail);
-            } else{
+            } else {
                 Tools::alertMessage("Il faut remplir les 3 champs !", "orange");
                 header('Location: ' . URL . 'registration');
             }
             break;
 
-        case "mailValidationAccount":
-                echo "test";
-
+        case "mail_validation_account":
+            $login = Tools::secureHTML($url[1]);
+            $account_key = Tools::secureHTML($url[2]);
+            $userController->validationAccountByLinkMail($login, $account_key);
             break;
-        case "resendValidationMail":
+        case "resend_validation_mail":
             $login = Tools::secureHTML($url[1]);
             $userController->resendValidationMail($login);
-
             break;
         case "forgot_password":
             $visitorController->forgotPassword();
@@ -94,6 +94,10 @@ try {
                         break;
                     case "logout":
                         $userController->logout();
+                        break;
+                    case "modify_mail":
+                        $newMail = Tools::secureHTML($_POST['new_mail']);
+                        $userController->modifyMail($newMail);
                         break;
                     default:
                         throw new Exception("La page demandée n'existe pas...");

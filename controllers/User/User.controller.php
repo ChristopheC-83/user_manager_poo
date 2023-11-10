@@ -28,7 +28,7 @@ class UserController extends MainController
                 // header('Location: ' . URL . 'account/profile');
             } else {
                 Tools::alertMessage("Compteen attente validation", "orange");
-                $msg = "<a href='resendValidationMail/" . $login . "'>=> Renvoyer le mail de validation <=</a> ";
+                $msg = "<a href='resend_validation_mail/" . $login . "'>=> Renvoyer le mail de validation <=</a> ";
                 Tools::alertMessage($msg, "orange");
                 header('Location: ' . URL . 'connection');
             }
@@ -45,6 +45,7 @@ class UserController extends MainController
             "page_description" => "Page de profil",
             "page_title" => "Page de profil",
             "datasUser" => $datasUser,
+            "js"=>['profile.js'],
             "view" => "./views/User/profilePage.view.php",
             "template" => "./views/templates/template.php",
 
@@ -64,14 +65,15 @@ class UserController extends MainController
     }
     private function sendMailValidation($login, $mail, $account_key)
     {
-        $urlValidation = URL . "mailValidationAccount/" . $login . "/" . $account_key;
+        $urlValidation = URL . "mail_validation_account/" . $login . "/" . $account_key;
         $sujet = "Validez Compte Barpat";
         $message = "Validez votre compte sur le blog de Barpat ! Nous t'attendons ! Cliquez sur :" . $urlValidation;
         Tools::sendMail($mail, $sujet, $message);
     }
 
-    public function resendValidationMail($login){
-        
+    public function resendValidationMail($login)
+    {
+
         $datasUser = $this->userManager->getUserInfo($login);
         $this->sendMailValidation($login, $datasUser['mail'], $datasUser['account_key']);
         Tools::alertMessage("Mail de validation renvoyé !", "green");
@@ -97,6 +99,30 @@ class UserController extends MainController
         } else {
             Tools::alertMessage("Pseudo déjà pris. Il faut en choisir un autre !", "orange");
             header('Location: ' . URL . 'registration');
+        }
+    }
+
+    private function accountAlreadyActivated($login)
+    {
+        $datasUser = $this->userManager->getUserInfo($login);
+        return ((int)$datasUser['is_valid'] === 1);
+    }
+
+    public function validationAccountByLinkMail($login, $account_key)
+    {
+        if ($this->accountAlreadyActivated($login)) {
+            $_SESSION['profile']['login'] = $login;
+            Tools::alertMessage("Ton compte est déjà activé !", "green");
+            header('Location: ' . URL . 'account/profile');
+        } else {
+            if ($this->userManager->validationAccountDB($login, $account_key)) {
+                $_SESSION['profile']['login'] = $login;
+                Tools::alertMessage("Ton compte est activé ! Bienvenue !", "green");
+                header('Location: ' . URL . 'account/profile');
+            } else {
+                Tools::alertMessage("Echec de l'activation du compte, réessaye.", "red");
+                header('Location: ' . URL . 'registration');
+            }
         }
     }
 }

@@ -61,4 +61,15 @@ class UserManager extends MainManager
         $stmt->closeCursor();
         return $isCreate;
     }
+    public function validationAccountDB($login, $account_key)
+    {
+        $req = "UPDATE users set is_valid = 1 WHERE login= :login and account_key= :account_key ";
+        $stmt = $this->getBDD()->prepare($req);
+        $stmt->bindValue(":login", $login, PDO::PARAM_STR);
+        $stmt->bindValue(":account_key", $account_key, PDO::PARAM_INT);
+        $stmt->execute();
+        $isValidate = ($stmt->rowCount() > 0);
+        $stmt->closeCursor();
+        return $isValidate;
+    }
 }

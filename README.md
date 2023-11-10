@@ -6,14 +6,23 @@
 
 
 
+<h3>10/11/2023</h3>
+Validation du compte par lien envoyé sur boite mail.<br>
+MEP possibilité changement mail<br>
+<br>
+<br>
+<br>
+<br>
+
+<br>
 <h3>09/11/2023</h3>
 Mise en place des boutons profils/déconnexion.<br>
 Formulaire login fonctionnel.<br>
 Vérification connexion effective pour accès aux différentes parties du site.<br>
 Création compte possible avec vérification Pseudo disponible.<br>
 Interrogation : mail de validation ou pas ?<br>
-Je le mets en place puis désactiverai cette fonctionnalité.<br>
-Elle sera dans le code au besoin.<br>
+Elle sera dans le code puis retirée au besoin.<br>
+Possibilité de redemander un mail de validation du compte.<br>
 
 <br>
 <h3>08/11/2023</h3>
