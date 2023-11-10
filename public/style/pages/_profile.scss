@@ -1,5 +1,5 @@
 .infoProfile {
-  margin: 10px 0;
+  margin: 20px 0;
   width: clamp(300px, 50vw, 800px);
   display: flex;
   align-items: center;
@@ -91,3 +91,16 @@
   }
 }
 
+.deleteValidationModale {
+  position: absolute;
+  z-index: 20;
+  a{
+    color: var(--text_2);
+  }
+ p{
+    text-shadow: none;
+  }
+  .btnModifyPasswordPage {
+    margin: 20px;
+  }
+}

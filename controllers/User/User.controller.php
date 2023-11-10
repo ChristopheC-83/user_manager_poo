@@ -45,7 +45,7 @@ class UserController extends MainController
             "page_description" => "Page de profil",
             "page_title" => "Page de profil",
             "datasUser" => $datasUser,
-            "js" => ['profile.js'],
+            "js" => ['profile_modify_mail.js', 'profile_delete_account.js'],
             "view" => "./views/User/profilePage.view.php",
             "template" => "./views/templates/template.php",
 
@@ -92,9 +92,9 @@ class UserController extends MainController
     public function validationRegistration($login, $password, $mail)
     {
         if ($this->userManager->isLoginFree($login)) {
-            $passwordCrypt = password_hash($password, PASSWORD_DEFAULT);
+            $password_crypt = password_hash($password, PASSWORD_DEFAULT);
             $account_key = rand(0, 999999);
-            $this->registerAccount($login, $passwordCrypt, $mail, $account_key);
+            $this->registerAccount($login, $password_crypt, $mail, $account_key);
         } else {
             Tools::alertMessage("Pseudo déjà pris. Il faut en choisir un autre !", "orange");
             header('Location: ' . URL . 'registration');
@@ -133,7 +133,8 @@ class UserController extends MainController
         }
         header('Location: ' . URL . 'account/profile');
     }
-    public function modifyPasswordPage(){
+    public function modifyPasswordPage()
+    {
         $datasUser = $this->userManager->getUserInfo($_SESSION['profile']['login']);
 
         $data_page = [
@@ -145,5 +146,47 @@ class UserController extends MainController
             "template" => "./views/templates/template.php",
         ];
         $this->functions->generatePage($data_page);
+    }
+
+    public function validationNewPassword($old_password, $new_password)
+    {
+        if ($this->userManager->isCombinationValid($_SESSION['profile']['login'], $old_password)) {
+            $password_crypt = password_hash($new_password, PASSWORD_DEFAULT);
+            if ($this->userManager->modifyPasswordDB($_SESSION['profile']['login'], $password_crypt)) {
+                Tools::alertMessage("Mot de Passe modifié.", "green");
+                header('Location: ' . URL . 'account/profile');
+            } else {
+                Tools::alertMessage("Echec de la modification dun mot de passe.", "red");
+                header('Location: ' . URL . 'account/modify_password');
+            }
+        } else {
+            Tools::alertMessage("Ancien Mot de Passe erroné.", "red");
+            header('Location: ' . URL . 'account/modify_password');
+        }
+    }
+
+
+    public function sendNewPassword($old_password, $new_password, $verif_password)
+    {
+        if ($old_password === $new_password) {
+            Tools::alertMessage("Vous avez remis le même mot de passe ! ", "orange");
+            header('Location: ' . URL . 'account/modify_password');
+        } else if ($new_password !== $verif_password) {
+            Tools::alertMessage("Les nouveaux Mots de Passe ne correspondent pas ! ", "red");
+            header('Location: ' . URL . 'account/modify_password');
+        } else {
+            $this->validationNewPassword($old_password, $new_password);
+        }
+    }
+    public function deleteAccount()
+    {
+        $login = $_SESSION['profile']['login'];
+        if ($this->userManager->deleteAccountDB($login)) {
+            $this->logout();
+            Tools::alertMessage("Suppression du compte effectuée. ", "green");
+        } else {
+            Tools::alertMessage("La suppression du compte a échoué. ", "red");
+            header('Location: ' . URL . 'account/profile');
+        }
     }
 }

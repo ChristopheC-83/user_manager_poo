@@ -1,11 +1,11 @@
 <div class="container">
     <h1>Modifiez votre Mot de Passe</h1>
 
-    <form action="<?= URL ?>account/validation_new_password" method="POST" class="containerForm">
+    <form action="<?= URL ?>account/send_new_password" method="POST" class="containerForm">
 
         <div class="entryForm">
             <label for="password">Ancien Mot de Passe</label>
-            <input type="text" name="password" id="password">
+            <input type="password" name="password" id="password">
         </div>
         <div class="entryForm">
             <label for="new_password">Nouveau Mot de Passe</label>

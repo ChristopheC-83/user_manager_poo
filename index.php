@@ -99,11 +99,25 @@ try {
                         $newMail = Tools::secureHTML($_POST['new_mail']);
                         $userController->modifyMail($newMail);
                         break;
-                    case "modifyPassword":
+                    case "modify_password":
                         $userController->modifyPasswordPage();
                         break;
-                    case "validation_new_password":
-                        // $userController->validationNewPassword();
+
+                    case "send_new_password":
+                        if (!empty($_POST['password']) && !empty($_POST['new_password']) && !empty($_POST['verif_password'])) {
+                            $old_password = Tools::secureHTML($_POST["password"]);
+                            $new_password = Tools::secureHTML($_POST["new_password"]);
+                            $verif_password = Tools::secureHTML($_POST["verif_password"]);
+                            $userController->sendNewPassword($old_password, $new_password, $verif_password);
+                        } else {
+                            Tools::alertMessage("Il faut remplir les 3 champs !", "orange");
+                            header('Location: ' . URL . 'account/modify_password');
+                        }
+                        break;
+
+
+                    case "delete_account":
+                        $userController->deleteAccount();
                         break;
                     default:
                         throw new Exception("La page demandée n'existe pas...");

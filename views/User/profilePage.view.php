@@ -13,20 +13,39 @@
                     <label for="new_mail">Nouvelle adresse Mail :</label>
                     <input type="mail" name="new_mail" id="new_mail" value=<?= $datasUser['mail'] ?>>
                     <button type="submit">
-                        <p>Je valide</p>
+                        <p>Je valide mon nouveau Mail !</p>
                     </button>
                 </div>
             </form>
         </div>
         <div class="infoProfile">
             <div class="modifyPasswordPage">
-                <a href="<?= URL?>account/modifyPassword">
+                <a href="<?= URL ?>account/modify_password">
                     <div class="btnModifyPasswordPage">
                         <p>Je modifie mon Mot de Passe</p>
                     </div>
                 </a>
             </div>
 
+        </div>
+        <div class="infoProfile">
+            <div class="modifyPasswordPage">
+                <div class="btnModifyPasswordPage"id="openModalDeleteAcount">
+                    <p>Je veux supprimer mon compte.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="deleteValidationModale containerForm dnone">
+            <h3>Cette action sera irréversible !</h3>
+            <div class="btnModifyPasswordPage">
+                <a href="<?= URL ?>account/delete_account">
+                    <p>Suppression définitive validée.</p>
+                </a>
+            </div>
+            <div class="btnModifyPasswordPage"id="closeModalDeleteAcount">
+                <h4>Annulez ! Je reste !</h4>
+            </div>
         </div>
 
 

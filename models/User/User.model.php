@@ -45,7 +45,6 @@ class UserManager extends MainManager
     {
         return (empty($this->getUserInfo($login)));
     }
-
     public function registerAccountDB($login, $password, $mail, $account_key)
     {
         $req = "INSERT INTO users (login, password, mail, is_valid, role, account_key, avatar)
@@ -72,9 +71,8 @@ class UserManager extends MainManager
         $stmt->closeCursor();
         return $isValidate;
     }
-
-    public function modifyMailDB($login, $mail){
-    
+    public function modifyMailDB($login, $mail)
+    {
         $req = "UPDATE users set mail = :mail WHERE login= :login";
         $stmt = $this->getBDD()->prepare($req);
         $stmt->bindValue(":login", $login, PDO::PARAM_STR);
@@ -83,7 +81,27 @@ class UserManager extends MainManager
         $isValidate = ($stmt->rowCount() > 0);
         $stmt->closeCursor();
         return $isValidate;
-    
-    
+    }
+    public function modifyPasswordDB($login, $password)
+    {
+        $req = "UPDATE users set password = :password WHERE login= :login";
+        $stmt = $this->getBDD()->prepare($req);
+        $stmt->bindValue(":login", $login, PDO::PARAM_STR);
+        $stmt->bindValue(":password", $password, PDO::PARAM_STR);
+        $stmt->execute();
+        $isValidate = ($stmt->rowCount() > 0);
+        $stmt->closeCursor();
+        return $isValidate;
+    }
+
+    public function deleteAccountDB($login)
+    {
+        $req = "DELETE FROM users WHERE login= :login";
+        $stmt = $this->getBDD()->prepare($req);
+        $stmt->bindValue(":login", $login, PDO::PARAM_STR);
+        $stmt->execute();
+        $isValidate = ($stmt->rowCount() > 0);
+        $stmt->closeCursor();
+        return $isValidate;
     }
 }
