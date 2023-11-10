@@ -72,4 +72,18 @@ class UserManager extends MainManager
         $stmt->closeCursor();
         return $isValidate;
     }
+
+    public function modifyMailDB($login, $mail){
+    
+        $req = "UPDATE users set mail = :mail WHERE login= :login";
+        $stmt = $this->getBDD()->prepare($req);
+        $stmt->bindValue(":login", $login, PDO::PARAM_STR);
+        $stmt->bindValue(":mail", $mail, PDO::PARAM_STR);
+        $stmt->execute();
+        $isValidate = ($stmt->rowCount() > 0);
+        $stmt->closeCursor();
+        return $isValidate;
+    
+    
+    }
 }

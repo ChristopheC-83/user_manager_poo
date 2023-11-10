@@ -8,7 +8,7 @@
                 <p><?= $datasUser['mail'] ?></p>
                 <i class="fa-solid fa-pen" id="btnModifyMail"></i>
             </div>
-            <form action="<?=URL?>account/modify_mail" method="POST" class="dnone" id="formModifyMail">
+            <form action="<?= URL ?>account/modify_mail" method="POST" class="dnone" id="formModifyMail">
                 <div class="entryForm">
                     <label for="new_mail">Nouvelle adresse Mail :</label>
                     <input type="mail" name="new_mail" id="new_mail" value=<?= $datasUser['mail'] ?>>
@@ -18,21 +18,32 @@
                 </div>
             </form>
         </div>
+        <div class="infoProfile">
+            <div class="modifyPasswordPage">
+                <a href="<?= URL?>account/modifyPassword">
+                    <div class="btnModifyPasswordPage">
+                        <p>Je modifie mon Mot de Passe</p>
+                    </div>
+                </a>
+            </div>
+
+        </div>
 
 
-        
 
 
-</div>
-
-<div class="">
 
 
-    <?php
-    Tools::showArray($datasUser);
-    ?>
-    <?php
-    Tools::showArray($_SESSION);
-    ?>
+    </div>
 
-</div>
+    <div class="">
+
+
+        <?php
+        Tools::showArray($datasUser);
+        ?>
+        <?php
+        Tools::showArray($_SESSION);
+        ?>
+
+    </div>

@@ -99,6 +99,12 @@ try {
                         $newMail = Tools::secureHTML($_POST['new_mail']);
                         $userController->modifyMail($newMail);
                         break;
+                    case "modifyPassword":
+                        $userController->modifyPasswordPage();
+                        break;
+                    case "validation_new_password":
+                        // $userController->validationNewPassword();
+                        break;
                     default:
                         throw new Exception("La page demandée n'existe pas...");
                 }

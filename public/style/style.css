@@ -452,12 +452,29 @@ header h2 {
   background-color: var(--border_3);
   color: var(--text_2);
   font-weight: bold;
+  cursor: pointer;
 }
 .entryForm button:hover {
   transform: translateY(3px);
   box-shadow: 0px 1px 1px 0px var(--shadow_1);
   color: var(--text_1);
   background-color: var(--border_1);
+}
+.entryForm .disabled {
+  background-color: #c4c4c4;
+  color: black;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  box-shadow: none;
+  cursor: default;
+  pointer-events: none;
+}
+.entryForm .disabled:hover {
+  transform: none;
+  box-shadow: none;
+  color: black;
+  background-color: #d4d4d4;
 }
 .entryForm a {
   margin: 10px;
@@ -473,6 +490,7 @@ header h2 {
 }
 
 .infoProfile {
+  margin: 10px 0;
   width: clamp(300px, 50vw, 800px);
   display: flex;
   align-items: center;
@@ -484,6 +502,10 @@ header h2 {
 .infoProfile i {
   font-size: clamp(18px, 14px + 0.7vw, 22px);
   cursor: pointer;
+}
+
+.blockProfile {
+  margin-bottom: 30px;
 }
 
 .decompressed {
@@ -540,6 +562,36 @@ header h2 {
     height: 235px;
   }
 }
+.btnModifyPasswordPage {
+  width: clamp(250px, 30vw, 450px);
+  text-align: center;
+  border-radius: 10px;
+  margin: 40px 0 60px;
+  padding: 10px;
+  transition: all 0.15s;
+  box-shadow: 0px 4px 4px 0px var(--shadow_1);
+  background-color: var(--border_3);
+  color: var(--text_2);
+  font-weight: bold;
+  cursor: pointer;
+}
+.btnModifyPasswordPage:hover {
+  transform: translateY(3px);
+  box-shadow: 0px 1px 1px 0px var(--shadow_1);
+  color: var(--text_1);
+  background-color: var(--border_1);
+}
+
+.erreurPassword {
+  color: red;
+  text-shadow: none;
+  transition: all 0.5s;
+}
+
+.blind {
+  opacity: 0;
+}
+
 .body {
   background: linear-gradient(270deg, var(--bg_1) 0%, var(--components_1) 100%);
   color: var(--text_2);

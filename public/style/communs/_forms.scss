@@ -52,6 +52,7 @@
     background-color: var(--border_3);
     color: var(--text_2);
     font-weight: bold;
+    cursor: pointer;
 
     &:hover {
       transform: translateY(3px);
@@ -60,6 +61,21 @@
       background-color: var(--border_1);
     }
   }
+  .disabled {
+    background-color: #c4c4c4;
+    color: black;
+    user-select: none;
+    box-shadow: none;
+    cursor: default;
+    pointer-events: none;
+    &:hover {
+      transform: none;
+      box-shadow: none;
+      color: black;
+      background-color: #d4d4d4;
+    }
+  }
+
   a {
     margin: 10px;
     h4 {
@@ -73,5 +89,3 @@
     }
   }
 }
-
-

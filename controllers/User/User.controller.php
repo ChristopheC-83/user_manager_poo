@@ -45,7 +45,7 @@ class UserController extends MainController
             "page_description" => "Page de profil",
             "page_title" => "Page de profil",
             "datasUser" => $datasUser,
-            "js"=>['profile.js'],
+            "js" => ['profile.js'],
             "view" => "./views/User/profilePage.view.php",
             "template" => "./views/templates/template.php",
 
@@ -57,11 +57,10 @@ class UserController extends MainController
         unset($_SESSION['profile']);
         if ($_SESSION['profile']) {
             Tools::alertMessage("La déconnexion a échoué.", "red");
-            header('Location: ' . URL . 'home');
         } else {
             Tools::alertMessage("Vous êtes bien déconnecté(e).", "green");
-            header('Location: ' . URL . 'home');
         }
+        header('Location: ' . URL . 'home');
     }
     private function sendMailValidation($login, $mail, $account_key)
     {
@@ -124,5 +123,27 @@ class UserController extends MainController
                 header('Location: ' . URL . 'registration');
             }
         }
+    }
+    public function modifyMail($newMail)
+    {
+        if ($this->userManager->modifyMailDB($_SESSION['profile']['login'], $newMail)) {
+            Tools::alertMessage("Adresse Mail modifiée avec succés.", "green");
+        } else {
+            Tools::alertMessage("Aucune modification de l'adresse mail.", "red");
+        }
+        header('Location: ' . URL . 'account/profile');
+    }
+    public function modifyPasswordPage(){
+        $datasUser = $this->userManager->getUserInfo($_SESSION['profile']['login']);
+
+        $data_page = [
+            "page_description" => "Page de profil",
+            "page_title" => "Page de profil",
+            "datasUser" => $datasUser,
+            "js" => ['passwordVerify.js'],
+            "view" => "./views/User/modifyPAsswordPage.view.php",
+            "template" => "./views/templates/template.php",
+        ];
+        $this->functions->generatePage($data_page);
     }
 }
