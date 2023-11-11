@@ -6,6 +6,16 @@ class ImagesManager extends MainManager
 {
 
 
+    function getImageSiteUser($login)
+    {
+        $req = "SELECT avatar_site FROM users WHERE login = :login";
+        $stmt = $this->getBDD()->prepare($req);
+        $stmt->bindValue(":login", $login, PDO::PARAM_STR);
+        $stmt->execute();
+        $resultat = $stmt->fetch(PDO::FETCH_ASSOC);
+        $stmt->closeCursor();
+        return $resultat['avatar_site'];
+    }
     function getImageUser($login)
     {
         $req = "SELECT avatar FROM users WHERE login = :login";
