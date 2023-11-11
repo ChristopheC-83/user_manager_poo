@@ -11,8 +11,10 @@ define("URL", str_replace("index.php", "", (isset($_SERVER['HTTPS']) ? "https"  
 
 require_once("./controllers/Visitor/Visitor.controller.php");
 require_once("./controllers/User/User.controller.php");
+require_once("./controllers/Images.controller.php");
 $visitorController = new VisitorController();
 $userController = new UserController();
+$imageController = new ImageController();
 
 
 // l'index est le point d'entrée du site
@@ -102,7 +104,6 @@ try {
                     case "modify_password":
                         $userController->modifyPasswordPage();
                         break;
-
                     case "send_new_password":
                         if (!empty($_POST['password']) && !empty($_POST['new_password']) && !empty($_POST['verif_password'])) {
                             $old_password = Tools::secureHTML($_POST["password"]);
@@ -114,6 +115,33 @@ try {
                             header('Location: ' . URL . 'account/modify_password');
                         }
                         break;
+                        case "modify_avatar_by_site":
+                            $newAvatar=Tools::secureHTML($url[2]);
+                            $imageController->modifyAvatarBySite($newAvatar);
+                            break;
+
+                        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
                     case "delete_account":

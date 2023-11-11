@@ -600,7 +600,7 @@ header h2 {
 }
 
 .avatarContainer {
-  margin-bottom: 20px;
+  margin-bottom: 40px;
   display: flex;
   align-items: end;
 }
@@ -612,6 +612,56 @@ header h2 {
   max-height: 200px;
   border-radius: 50%;
   box-shadow: 2px 2px 20px 5px var(--shadow_1);
+}
+
+#blockModifyAvatar {
+  display: flex;
+  flex-direction: column;
+}
+
+.formChangeAvatar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+}
+
+.overlay_img_site {
+  background-color: rgba(85, 85, 85, 0.3333333333);
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 2;
+}
+
+.images_site {
+  border: 3px solid black;
+  background-color: rgba(51, 51, 51, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  width: 90vw;
+  max-width: 800px;
+  display: flex;
+  flex-wrap: wrap;
+  z-index: 5;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 20;
+}
+.images_site .image_site {
+  margin: 10px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
 }
 
 .erreurPassword {

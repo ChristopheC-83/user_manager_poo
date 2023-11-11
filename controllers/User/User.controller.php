@@ -45,7 +45,7 @@ class UserController extends MainController
             "page_description" => "Page de profil",
             "page_title" => "Page de profil",
             "datasUser" => $datasUser,
-            "js" => ['profile_modify_mail.js', 'profile_delete_account.js'],
+            "js" => ['profile_modify_mail.js', 'profile_delete_account.js', 'profile_modify_avatar.js'],
             "view" => "./views/User/profilePage.view.php",
             "template" => "./views/templates/template.php",
 
