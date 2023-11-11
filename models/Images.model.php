@@ -30,4 +30,18 @@ class ImagesManager extends MainManager
         $stmt->closeCursor();
         return $validationOk;
     }
+    function addImageDB($login, $avatar, $avatar_site)
+    {
+        $req = "UPDATE users set avatar = :avatar, avatar_site = :avatar_site
+                WHERE login = :login
+                ";
+        $stmt = $this->getBDD()->prepare($req);
+        $stmt->bindValue(":login", $login, PDO::PARAM_STR);
+        $stmt->bindValue(":avatar", $avatar, PDO::PARAM_STR);
+        $stmt->bindValue(":avatar_site", $avatar_site, PDO::PARAM_INT);
+        $stmt->execute();
+        $validationOk = ($stmt->rowCount() > 0);
+        $stmt->closeCursor();
+        return $validationOk;
+    }
 }
