@@ -11,6 +11,8 @@ Validation du compte par lien envoyé sur boite mail.<br>
 MEP possibilité changement mail.<br>
 Possibilité de changer d emot de passe.<br>
 Possibilité de supprimer son compte.<br>
+Possibilité de changer d'avatar avec un perso ou un proposé par le site.<br>
+
 <br>
 <br>
 

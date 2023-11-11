@@ -2,6 +2,7 @@
 
 require_once("./controllers/Main.controller.php");
 require_once("./models/User/User.model.php");
+require_once("./models/Images.model.php");
 
 
 
@@ -9,11 +10,13 @@ require_once("./models/User/User.model.php");
 class UserController extends MainController
 {
     private $userManager;
+    private $imagesManager;
     public $functions;
     public function __construct()
     {
         $this->functions = new Functions();
         $this->userManager = new UserManager();
+        $this->imagesManager = new ImageController();
     }
     public function validation_login($login, $password)
     {
@@ -79,7 +82,7 @@ class UserController extends MainController
     }
     private function registerAccount($login, $password, $mail, $account_key)
     {
-        $avatar = URL . "public/assets/images/avatars/site/astroshiba.jpg";
+        $avatar ="site/astroshiba.jpg";
         if ($this->userManager->registerAccountDB($login, $password, $mail, $account_key, $avatar)) {
             $this->sendMailValidation($login, $mail, $account_key);
             Tools::alertMessage("Compte créé ! Lien de validation envoyé par mail.", "green");
@@ -181,6 +184,8 @@ class UserController extends MainController
     public function deleteAccount()
     {
         $login = $_SESSION['profile']['login'];
+        $this->imagesManager->deleteUserAvatar($login);
+        rmdir("public/assets/images/avatars/users/".$login);
         if ($this->userManager->deleteAccountDB($login)) {
             $this->logout();
             Tools::alertMessage("Suppression du compte effectuée. ", "green");

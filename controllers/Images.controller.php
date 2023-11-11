@@ -16,7 +16,7 @@ class ImageController
 
     public function deleteUserAvatar($login)
     {
-        if (!$this->imagesManager->getImageSiteUser($login)) {
+        if ($this->imagesManager->getImageSiteUser($login) == 0) {
             $oldAvatar = $this->imagesManager->getImageUser($login);
             unlink("public/assets/images/avatars/" . $oldAvatar);
         }
