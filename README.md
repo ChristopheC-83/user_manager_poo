@@ -5,16 +5,22 @@
 
 
 
+<br>
+<h3>12/11/2023</h3>
+Validation du compte par lien envoyé sur boite mail.<br>
+<br>
 
+<br>
+<h3>11/11/2023</h3>
+Possibilité de supprimer son compte.<br>
+Possibilité de changer d'avatar avec un perso ou un proposé par le site.<br>
+Coreection bug mineurs.<br>
+
+<br>
 <h3>10/11/2023</h3>
 Validation du compte par lien envoyé sur boite mail.<br>
 MEP possibilité changement mail.<br>
-Possibilité de changer d emot de passe.<br>
-Possibilité de supprimer son compte.<br>
-Possibilité de changer d'avatar avec un perso ou un proposé par le site.<br>
-
-<br>
-<br>
+Possibilité de changer de mot de passe.<br>
 
 <br>
 <h3>09/11/2023</h3>

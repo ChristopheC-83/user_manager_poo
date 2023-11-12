@@ -53,13 +53,11 @@
             <p><b>Votre statut : </b></p>
             <p><?php if ($datasUser['role'] === 'user') {
                     echo 'Inscrit';
-                } elseif ($datasUser['role'] === 'superUser') {
-                    echo 'modérateur';
+                } elseif ($datasUser['role'] === 'editor') {
+                    echo 'Editeur';
                 } elseif ($datasUser['role'] === 'administrator') {
-                    echo 'administrateur';
+                    echo 'Administrateur';
                 }
-
-
                 ?></p>
         </div>
         <div class="infoProfile">
