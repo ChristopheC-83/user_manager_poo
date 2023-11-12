@@ -78,7 +78,7 @@
         <?php if (Tools::isAdministrator()) : ?>
             <div class="infoProfile">
                 <div class="modifyPasswordPage">
-                    <a href="<?= URL ?>administrator/user_accounts">
+                    <a href="<?= URL ?>administrator/rights_management">
                         <div class="btnModifyPasswordPage">
                             <p>Accés aux comptes utilisateurs</p>
                         </div>

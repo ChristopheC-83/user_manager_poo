@@ -14,4 +14,13 @@ abstract class MainManager extends Model
         $stmt->closeCursor();
         return $infos;
     }
+    public function getUsers()
+    {
+        $req = "SELECT * FROM users ";
+        $stmt = $this->getBDD()->prepare($req);
+        $stmt->execute();
+        $infos = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $stmt->closeCursor();
+        return $infos;
+    }
 }

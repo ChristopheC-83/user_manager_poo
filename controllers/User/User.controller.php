@@ -59,6 +59,7 @@ class UserController extends MainController
     public function logout()
     {
         unset($_SESSION['profile']);
+        unset($_SESSION['profil']);
         if ($_SESSION['profile']) {
             Tools::alertMessage("La déconnexion a échoué.", "red");
         } else {

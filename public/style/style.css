@@ -681,6 +681,19 @@ header h2 {
   opacity: 0;
 }
 
+.usersArray {
+  width: 80%;
+  text-align: center;
+  margin: 10px auto;
+}
+
+th,
+td,
+tr {
+  padding: 15px;
+  border: 1px solid var(--text_2);
+}
+
 .body {
   background: linear-gradient(270deg, var(--bg_1) 0%, var(--components_1) 100%);
   color: var(--text_2);
