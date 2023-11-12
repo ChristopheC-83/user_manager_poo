@@ -1,9 +1,10 @@
 <?php
 // les modelsManager permettent la récupéretion, le traitement des données
 // ils gèrent aussi la partie logique du site.
+// Il est issu de ImagesManager (issu de Model), car ImagesManager utiles partout !
 
-require_once("./models/pdo.model.php");
-abstract class MainManager extends Model
+require_once("./models/Images.model.php");
+abstract class MainManager extends ImagesManager
 {
     public function getThemes()
     {

@@ -1,8 +1,8 @@
 <?php
 
-require_once("./models/MainManager.model.php");
+require_once("./models/pdo.model.php");
 
-class ImagesManager extends MainManager
+class ImagesManager extends Model
 {
 
 
@@ -40,7 +40,7 @@ class ImagesManager extends MainManager
         $stmt->closeCursor();
         return $validationOk;
     }
-    function addImageDB($login, $avatar, $avatar_site)
+    public function addImageDB($login, $avatar, $avatar_site)
     {
         $req = "UPDATE users set avatar = :avatar, avatar_site = :avatar_site
                 WHERE login = :login

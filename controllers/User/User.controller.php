@@ -2,21 +2,18 @@
 
 require_once("./controllers/Main.controller.php");
 require_once("./models/User/User.model.php");
-require_once("./models/Images.model.php");
 
 
 
 
 class UserController extends MainController
 {
-    private $userManager;
-    private $imagesManager;
+    public $userManager;
     public $functions;
     public function __construct()
     {
         $this->functions = new Functions();
         $this->userManager = new UserManager();
-        $this->imagesManager = new ImageController();
     }
     public function validation_login($login, $password)
     {
@@ -186,7 +183,7 @@ class UserController extends MainController
     public function deleteAccount()
     {
         $login = $_SESSION['profile']['login'];
-        $this->imagesManager->deleteUserAvatar($login);
+        $this->deleteUserAvatar($login);
         rmdir("public/assets/images/avatars/users/".$login);
         if ($this->userManager->deleteAccountDB($login)) {
             $this->logout();

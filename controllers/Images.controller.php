@@ -2,16 +2,14 @@
 
 require_once("./models/Images.model.php");
 
-class ImageController
+abstract class ImageController
 {
 
 
     public $imagesManager;
-    private $userManager;
     public function __construct()
     {
         $this->imagesManager = new ImagesManager();
-        $this->userManager = new UserManager();
     }
 
     public function deleteUserAvatar($login)
@@ -68,7 +66,7 @@ class ImageController
 
 
 
-    public function modifyAvatarBySite($avatar)
+    protected function modifyAvatarBySite($avatar)
     {
         $this->deleteUserAvatar($_SESSION['profile']['login']);
         $linkAvatar = "site/" . $avatar;
