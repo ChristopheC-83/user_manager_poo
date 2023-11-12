@@ -24,6 +24,22 @@ abstract class Tools
     {
         return (!empty($_SESSION['profile']));
     }
+    public static function isUser()
+    {
+        return ($_SESSION['profile']['role'] === "user" ||
+            $_SESSION['profile']['role'] === "editor" ||
+            $_SESSION['profile']['role'] === "admin"
+        );
+    }
+    public static function isEditor()
+    {
+        return ($_SESSION['profile']['role'] === "editor" ||
+            $_SESSION['profile']['role'] === "admin");
+    }
+    public static function isAdministrator()
+    {
+        return ($_SESSION['profile']['role'] === "admin");
+    }
     public static function sendMail($to, $subject, $message)
     {
         $headers = "From : christophe@barpat.fun";

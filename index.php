@@ -11,10 +11,14 @@ define("URL", str_replace("index.php", "", (isset($_SERVER['HTTPS']) ? "https"  
 
 require_once("./controllers/Visitor/Visitor.controller.php");
 require_once("./controllers/User/User.controller.php");
+require_once("./controllers/Editor/Editor.controller.php");
+require_once("./controllers/Admin/Administrator.controller.php");
 require_once("./controllers/Images.controller.php");
 $visitorController = new VisitorController();
-$userController = new UserController();
 $imageController = new ImageController();
+$userController = new UserController();
+$editorController = new EditorController();
+$administratorController = new AdminstratorController();
 
 
 // l'index est le point d'entrée du site
@@ -88,7 +92,7 @@ try {
         case "account":
             if (!Tools::isConnected()) {
                 Tools::alertMessage("Vous devez vous connecter pour accéder à cet espace.", "red");
-                header('Location: ' . URL . 'home');
+                header('Location: ' . URL . 'connection');
             } else {
                 switch ($url[1]) {
                     case "profile":
@@ -161,6 +165,50 @@ try {
                 }
             }
             break;
+
+            // ################################# Editor
+
+        case "editor":
+            if (!Tools::isConnected()) {
+                Tools::alertMessage("Vous devez vous connecter pour accéder à cet espace.", "red");
+                header('Location: ' . URL . 'connection');
+            } else if (!Tools::isEditor()) {
+                Tools::alertMessage("Vous n'avez pas le statut requis.", "red");
+                header('Location: ' . URL . 'home');
+            } else {
+                switch ($url[1]) {
+                    case "write_article":
+                        $editorController->writeArticle();
+                        break;
+
+                    default:
+                        throw new Exception("La page demandée n'existe pas...");
+                }
+            }
+            break;
+
+
+            // ################################# Administrator
+
+        case "administrator":
+            if (!Tools::isConnected()) {
+                Tools::alertMessage("Vous devez vous connecter pour accéder à cet espace.", "red");
+                header('Location: ' . URL . 'connection');
+            } else if (!Tools::isAdministrator()) {
+                Tools::alertMessage("Vous n'avez pas le statut requis.", "red");
+                header('Location: ' . URL . 'home');
+            } else {
+                switch ($url[1]) {
+                    case "user_accounts":
+                        $administratorController->userAccounts();
+                        break;
+
+                    default:
+                        throw new Exception("La page demandée n'existe pas...");
+                }
+            }
+            break;
+
         default:
             throw new Exception("La page demandée n'existe pas...");
     }

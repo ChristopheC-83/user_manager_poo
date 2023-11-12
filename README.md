@@ -3,11 +3,14 @@
 <br><br>
 
 
-
-
 <br>
 <h3>12/11/2023</h3>
 Validation du compte par lien envoyé sur boite mail.<br>
+Niveaux d'utilisateurs :<br>
+- visiteurs, non inscrits<br>
+- Utilisateur<br>
+- Editeur<br>
+- Administrateur<br>
 <br>
 
 <br>

@@ -55,11 +55,38 @@
                     echo 'Inscrit';
                 } elseif ($datasUser['role'] === 'editor') {
                     echo 'Editeur';
-                } elseif ($datasUser['role'] === 'administrator') {
+                } elseif ($datasUser['role'] === 'admin') {
                     echo 'Administrateur';
                 }
                 ?></p>
         </div>
+
+
+
+
+        <?php if ( Tools::isEditor()) : ?>
+            <div class="infoProfile">
+                <div class="modifyPasswordPage">
+                    <a href="<?= URL ?>editor/write_article">
+                        <div class="btnModifyPasswordPage">
+                            <p>J'écris un article.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        <?php endif ?>
+        <?php if (Tools::isAdministrator()) : ?>
+            <div class="infoProfile">
+                <div class="modifyPasswordPage">
+                    <a href="<?= URL ?>administrator/user_accounts">
+                        <div class="btnModifyPasswordPage">
+                            <p>Accés aux comptes utilisateurs</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        <?php endif ?>
+
         <div class="infoProfile">
             <div class="modifyPasswordPage">
                 <a href="<?= URL ?>account/modify_password">
@@ -68,15 +95,17 @@
                     </div>
                 </a>
             </div>
-
         </div>
-        <div class="infoProfile">
-            <div class="modifyPasswordPage">
-                <div class="btnModifyPasswordPage" id="openModalDeleteAcount">
-                    <p>Je veux supprimer mon compte.</p>
+
+        <?php if (!Tools::isAdministrator()) : ?>
+            <div class="infoProfile">
+                <div class="modifyPasswordPage">
+                    <div class="btnModifyPasswordPage" id="openModalDeleteAcount">
+                        <p>Je veux supprimer mon compte.</p>
+                    </div>
                 </div>
             </div>
-        </div>
+        <?php endif ?>
 
         <div class="deleteValidationModale containerForm dnone">
             <h3>Cette action sera irréversible !</h3>

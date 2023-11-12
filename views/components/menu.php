@@ -7,13 +7,13 @@ if (empty($_GET['page'])) {
 }
 require_once("./models/Visitor/Visitor.model.php");
 $visitorController = new VisitorManager();
+$userManager = new UserManager();
 $themes = $visitorController->getThemes();
+
 ?>
 
 
 <div class="btnThemesContainer">
-
-
 
    <a href="<?= URL ?>home" class="btnTheme all_themes 
       <?=
@@ -31,7 +31,7 @@ $themes = $visitorController->getThemes();
       </a>
    <?php endforeach ?>
 
-   <?php if (empty($_SESSION['profile']['login'])) : ?>
+   <?php if (!Tools::isConnected()) : ?>
 
       <a href="<?= URL ?>connection" class="btnTheme all_themes connection 
       <?= $url[0] === 'connection' ? 'selected_theme' : '';
@@ -46,7 +46,7 @@ $themes = $visitorController->getThemes();
 
       <div class="profilLogOut">
 
-         <a href="<?= URL ?>account/profile"><i class="fa-solid fa-user"></i></a>
+         <a href="<?= URL ?>account/profile"><img src="<?= URL . "public/assets/images/avatars/" . $_SESSION['profile']['avatar'] ?>" class="avatar_menu"></a>
 
          <a href="<?= URL ?>account/logout"><i class="fa-solid fa-right-from-bracket"></i></a>
 

@@ -22,6 +22,7 @@ class UserController extends MainController
     {
         $datasUser = $this->userManager->getUserInfo($login);
         $_SESSION['profile']['role'] =  $datasUser['role'];
+        $_SESSION['profile']['avatar'] =  $datasUser['avatar'];
 
         if ($this->userManager->isCombinationValid($login, $password)) {
             if ($this->userManager->isAccountValidated($login)) {

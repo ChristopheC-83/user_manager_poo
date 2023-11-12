@@ -664,6 +664,13 @@ header h2 {
   overflow: hidden;
 }
 
+.avatar_menu {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  box-shadow: 1px 1px 10px 3px var(--shadow_1);
+}
+
 .erreurPassword {
   color: red;
   text-shadow: none;
