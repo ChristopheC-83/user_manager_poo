@@ -1,6 +1,7 @@
 <?php
 
 // fichier avec des fonctions récurrentes
+// importé par injection de dépendances dzans chaque classe controller
 
 class Functions
 {

@@ -1,12 +1,12 @@
 <?php
 
-require_once("./models/MainManager.model.php");
+require_once("./models/pdo.model.php");
 
-class ImagesManager extends MainManager
+class ImagesManager extends Model
 {
 
 
-    function getImageSiteUser($login)
+    public function getImageSiteUser($login)
     {
         $req = "SELECT avatar_site FROM users WHERE login = :login";
         $stmt = $this->getBDD()->prepare($req);
@@ -16,7 +16,7 @@ class ImagesManager extends MainManager
         $stmt->closeCursor();
         return $resultat['avatar_site'];
     }
-    function getImageUser($login)
+    public function getImageUser($login)
     {
         $req = "SELECT avatar FROM users WHERE login = :login";
         $stmt = $this->getBDD()->prepare($req);
@@ -40,7 +40,7 @@ class ImagesManager extends MainManager
         $stmt->closeCursor();
         return $validationOk;
     }
-    function addImageDB($login, $avatar, $avatar_site)
+    public function addImageDB($login, $avatar, $avatar_site)
     {
         $req = "UPDATE users set avatar = :avatar, avatar_site = :avatar_site
                 WHERE login = :login

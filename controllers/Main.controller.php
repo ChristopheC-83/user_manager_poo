@@ -1,17 +1,20 @@
 <?php
 
-require_once("./controllers/Functions.controller.php");
+// issu de ImagesController car utilisé à tous les niveaux
+
+require_once("./controllers/Images.controller.php");
 require_once("./controllers/Tools.controller.php");
 require_once("./models/Visitor/Visitor.model.php");
 
 
 
-abstract class MainController
+abstract class MainController extends ImageController
 {
 
     // l'injection de cette dépendance permet d'utiliser 
     // dans les controller en charge d'afficher les pages les fonctions :
     // genererPage, afficherTableau, ajouterMessageAlerte
+    //Les injections ne se transmettent pas aux classes enfant !
 
     public $visitorManager;
     public $functions;
@@ -27,15 +30,11 @@ abstract class MainController
 
     public function homePage()
     {
-        $psw_hash = $this->functions->hashFunction("kiki");  // A enlever
-        $users = $this->visitorManager->getUsers();          // A enlever
 
         $data_page = [
             "page_description" => "Description accueil",
             "page_title" => "titre accueil",
             "view" => "views/Visitor/homePage.view.php",
-            "pws_hash" => $psw_hash,                             // A enlever
-            "users" => $users,                                   // A enlever
             "template" => "views/templates/template.php",
 
         ];
