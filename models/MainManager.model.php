@@ -4,7 +4,7 @@
 // Il est issu de ImagesManager (issu de Model), car ImagesManager utiles partout !
 
 require_once("./models/Images.model.php");
-abstract class MainManager extends ImagesManager
+class MainManager extends ImagesManager
 {
     public function getThemes()
     {

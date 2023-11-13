@@ -1,21 +1,21 @@
 <?php
 
-require_once("./models/Images.model.php");
+require_once("./models/User/User.model.php");
 
-abstract class ImageController
+class ImageController
 {
 
 
-    public $imagesManager;
+    public $userManager;
     public function __construct()
     {
-        $this->imagesManager = new ImagesManager();
+        $this->userManager = new ImagesManager();
     }
 
     public function deleteUserAvatar($login)
     {
-        if ($this->imagesManager->getImageSiteUser($login) == 0) {
-            $oldAvatar = $this->imagesManager->getImageUser($login);
+        if ($this->userManager->getImageSiteUser($login) == 0) {
+            $oldAvatar = $this->userManager->getImageUser($login);
             unlink("public/assets/images/avatars/" . $oldAvatar);
         }
     }
@@ -26,7 +26,7 @@ abstract class ImageController
             $repertoire ="public/assets/images/avatars/users/"  . $_SESSION['profile']['login'] . "/";
             $nomImage = $this->addImage($file, $repertoire);
             $nomImageBd = "users/" . $_SESSION['profile']['login'] . "/" . $nomImage;
-            if ($this->imagesManager->addImageDB($_SESSION['profile']['login'], $nomImageBd, 0)) {
+            if ($this->userManager->addImageDB($_SESSION['profile']['login'], $nomImageBd, 0)) {
                 header('location:' . URL . "account/profile");
             } else {
                 Tools::alertMessage("Modfication de l'image non effectuée.", "rouge");
@@ -66,11 +66,11 @@ abstract class ImageController
 
 
 
-    protected function modifyAvatarBySite($avatar)
+    public function modifyAvatarBySite($avatar)
     {
         $this->deleteUserAvatar($_SESSION['profile']['login']);
         $linkAvatar = "site/" . $avatar;
-        if ($this->imagesManager->ModifyAvatarDB($_SESSION['profile']['login'], $linkAvatar, 1)) {
+        if ($this->userManager->ModifyAvatarDB($_SESSION['profile']['login'], $linkAvatar, 1)) {
             header('location:' . URL . "account/profile");
         } else {
             Tools::alertMessage("Modification de l'image non effectuée.", "red");

@@ -119,12 +119,12 @@ try {
                         break;
                     case "modify_avatar_by_site":
                         $newAvatar = Tools::secureHTML($url[2]);
-                        $imageController->modifyAvatarBySite($newAvatar);
+                        $userController->modifyAvatarBySite($newAvatar);
                         break;
 
                     case "modify_image_by_perso":
                         if ($_FILES['image']['size'] > 0) {
-                            $imageController->modifyAvatarByPerso($_FILES['image']);
+                            $userController->modifyAvatarByPerso($_FILES['image']);
                         } else {
                             Tools::alertMessage("Image non modifiée", "rouge");
                             header('location:' . URL . "profil");

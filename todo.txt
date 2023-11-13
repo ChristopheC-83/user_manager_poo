@@ -14,3 +14,5 @@ C'est une div qui les contient.... ça permet de les placer les unes par rapport
 - responsivité
 
 - voir à transformer le fichier index en plusieurs morceaux avec des class.
+
+- mot de passe oublié

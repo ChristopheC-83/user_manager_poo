@@ -27,13 +27,19 @@
                 </td>
 
                 <td>
-                    <form action="<?= URL ?>administrator/modify_state" method="POST">
-                        <input type="hidden" name="login" value="<?= $user['login'] ?>">
-                        <select name="is_valid" name="is_valid" onchange="confirmation(this.form)">
-                            <option value=1 <?= $user['is_valid'] === 1 ? "selected" : "" ?>>Validé</option>
-                            <option value=0 <?= $user['is_valid'] === 0 ? "selected" : "" ?>>Non validé</option>
-                        </select>
-                    </form>
+                    <?php if ($user['role'] === "admin") : ?>
+
+                        <p>Toujours prêt !</p>
+
+                    <?php else : ?>
+                        <form action="<?= URL ?>administrator/modify_state" method="POST">
+                            <input type="hidden" name="login" value="<?= $user['login'] ?>">
+                            <select name="is_valid" name="is_valid" onchange="confirmation(this.form)">
+                                <option value=1 <?= $user['is_valid'] === 1 ? "selected" : "" ?>>Validé</option>
+                                <option value=0 <?= $user['is_valid'] === 0 ? "selected" : "" ?>>Non validé</option>
+                            </select>
+                        </form>
+                    <?php endif ?>
 
                 </td>
 
