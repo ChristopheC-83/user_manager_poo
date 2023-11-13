@@ -2,6 +2,15 @@
 <br><br>
 <br><br>
 
+<br>
+<h3>13/11/2023</h3>
+gestion du mot d epasse oublié.<br>
+correction bug changement avatar.<br>
+icone dans la barre de menuse met à jour au changement d'avatar.<br>
+page de gestion des droits pour l'administrateur :<br>
+- valider un compte.<br>
+- supprimer un compte.<br>
+- modifier le role de l'utilisateur.<br>
 
 <br>
 <h3>12/11/2023</h3>
@@ -17,7 +26,7 @@ Niveaux d'utilisateurs :<br>
 <h3>11/11/2023</h3>
 Possibilité de supprimer son compte.<br>
 Possibilité de changer d'avatar avec un perso ou un proposé par le site.<br>
-Coreection bug mineurs.<br>
+Correction bug mineurs.<br>
 
 <br>
 <h3>10/11/2023</h3>

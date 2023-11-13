@@ -22,7 +22,6 @@
 
 
 
-
     <div class="containing">
         <div class="content">
             <?php
