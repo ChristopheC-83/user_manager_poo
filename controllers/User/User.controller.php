@@ -81,13 +81,13 @@ class UserController extends MainController
     }
     private function registerAccount($login, $password, $mail, $account_key)
     {
-        $avatar ="site/astroshiba.jpg";
+        $avatar = "site/astroshiba.jpg";
         if ($this->userManager->registerAccountDB($login, $password, $mail, $account_key, $avatar)) {
             $this->sendMailValidation($login, $mail, $account_key);
             Tools::alertMessage("Compte créé ! Lien de validation envoyé par mail.", "green");
             header('Location: ' . URL . 'home');
         } else {
-            Tools::alertMessage("La création a échoué, Réessayez !", "rouge");
+            Tools::alertMessage("La création a échoué, Réessayez !", "red");
             header('Location: ' . URL . 'registration');
         }
     }
@@ -184,13 +184,67 @@ class UserController extends MainController
     {
         $login = $_SESSION['profile']['login'];
         $this->deleteUserAvatar($login);
-        rmdir("public/assets/images/avatars/users/".$login);
+        rmdir("public/assets/images/avatars/users/" . $login);
         if ($this->userManager->deleteAccountDB($login)) {
             $this->logout();
             Tools::alertMessage("Suppression du compte effectuée. ", "green");
         } else {
             Tools::alertMessage("La suppression du compte a échoué. ", "red");
             header('Location: ' . URL . 'account/profile');
+        }
+    }
+
+    public function forgotPasswordPage()
+    {
+
+        $data_page = [
+            "page_description" => "mot de passe oublié",
+            "page_title" => "mot de passe oublié",
+            "view" => "./views/Visitor/forgotPasswordPage.view.php",
+            "template" => "./views/templates/template.php",
+
+        ];
+        $this->functions->generatePage($data_page);
+    }
+
+    public function  isCombinationMailValid($login, $mail)
+    {
+        $maildBd = $this->userManager->getMailUser($login);
+        if ($maildBd === $mail) {
+            return true;
+        } else {
+            return false;
+        }
+        
+    }
+
+
+    public function sendNewPasswordAfterForgot($login, $newMdp)
+    {
+        $mdpCrypte = password_hash($newMdp, PASSWORD_DEFAULT);
+        if ($this->userManager->modifyPasswordDB($login, $mdpCrypte)) {
+            Tools::alertMessage("Mot de passe provisoire actif", "green");
+        } else {
+            Tools::alertMessage("Echec de la mise en place du nouveau mot de passe", "red");
+        }
+    }
+
+
+
+    public function sendForgotPassword($login, $mail)
+    {
+        if (!$this->isCombinationMailValid($login, $mail)) {
+            Tools::alertMessage("Pas de concordance, Merci de vérifier", "red");
+            header('Location: ' . URL . 'forgot_password');
+        } else {
+            $newMdp = $this->functions->generateRandomPassword(20);
+            $this->sendNewPasswordAfterForgot($login, $newMdp);
+            $destinataire = $mail;
+            $sujet = "on a oublié son mdp ?";
+            $message = "on va résoudre ça ! \r\nEssaye avec : \r\n \r\n" . $newMdp . " \r\n \r\nChange le sur le site... lui tu ne risques pas de le retenir !";
+            Tools::alertMessage("Nouveau mdp envoyé par mail", "green");
+            Tools::sendMail($destinataire, $sujet, $message,);
+            header('location:' . URL . "connection");
         }
     }
 }

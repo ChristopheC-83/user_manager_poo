@@ -73,8 +73,30 @@ try {
             $login = Tools::secureHTML($url[1]);
             $userController->resendValidationMail($login);
             break;
+        
         case "forgot_password":
-            $visitorController->forgotPassword();
+            $userController->forgotPasswordPage();
+            break;
+        
+        case "send_forgot_password":
+            if (!empty($_POST['login']) && !empty($_POST['mail'])) {
+                $login = Tools::secureHTML($_POST['login']);
+                $mail = Tools::secureHTML($_POST['mail']);
+                $userController->sendForgotPassword($login, $mail);
+            } else {
+                Tools::alertMessage('Login ou mail non renseigné.', 'red');
+                header('location:' . URL . "forgot_password");
+                exit;
+            }
+
+
+
+
+
+
+
+
+
             break;
         case "validation_login":
             if (!empty($_POST['login']) && !empty($_POST['password'])) {

@@ -5,7 +5,7 @@ require_once("./models/MainManager.model.php");
 
 class UserManager extends MainManager
 {
-    private function getPasswordUser($login)
+    public function getPasswordUser($login)
     {
         $req = "SELECT password FROM users WHERE login = :login";
         $stmt = $this->getBDD()->prepare($req);
@@ -14,6 +14,16 @@ class UserManager extends MainManager
         $resultat = $stmt->fetch(PDO::FETCH_ASSOC);
         $stmt->closeCursor();
         return $resultat['password'];
+    }
+    public function getMailUser($login)
+    {
+        $req = "SELECT mail FROM users WHERE login = :login";
+        $stmt = $this->getBDD()->prepare($req);
+        $stmt->bindValue(":login", $login, PDO::PARAM_STR);
+        $stmt->execute();
+        $resultat = $stmt->fetch(PDO::FETCH_ASSOC);
+        $stmt->closeCursor();
+        return $resultat['mail'];
     }
 
     public function isCombinationValid($login, $password)

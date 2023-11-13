@@ -34,15 +34,5 @@ class VisitorController extends MainController
         ];
         $this->functions->generatePage($data_page);
     }
-    public function forgotPassword()
-    {
-        $data_page = [
-            "page_description" => "Mot de passe oublié ?",
-            "page_title" => "Mot de passe oublié ?",
-            "view" => "views/Visitor/forgotPassword.view.php",
-            "template" => "views/templates/template.php",
-
-        ];
-        $this->functions->generatePage($data_page);
-    }
+   
 }

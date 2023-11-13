@@ -1,7 +1,7 @@
 <div class="container">
     <h1>Mot de passe oublié ?</h1>
 
-    <form action="<?= URL ?>##############" method="POST" class="containerForm">
+    <form action="<?= URL ?>send_forgot_password" method="POST" class="containerForm">
 
         <div class="entryForm">
             <label for="login">Pseudo</label>
