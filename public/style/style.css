@@ -263,10 +263,29 @@ p {
   border-radius: 10px;
   box-shadow: 2px 2px 10px var(--shadow_1);
   z-index: 10;
+  animation: translateAlert 5s ease-in-out forwards;
 }
 .alert h3 {
   font-weight: bold;
   text-shadow: 1px 1px 2px var(--bg_2);
+}
+@keyframes translateAlert {
+  0% {
+    left: -50%;
+    opacity: 0;
+  }
+  10% {
+    left: 50%;
+    opacity: 1;
+  }
+  90% {
+    left: 50%;
+    opacity: 1;
+  }
+  100% {
+    left: 150%;
+    opacity: 0;
+  }
 }
 
 .red {
