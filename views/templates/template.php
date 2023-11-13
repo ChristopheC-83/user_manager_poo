@@ -20,7 +20,9 @@
     <?php require_once("views/components/header.php") ?>
 
 
-
+    <div class="btn_menu_responsive">
+        <i class="fa-solid fa-circle-arrow-right arrow_btn"></i>
+    </div>
 
     <div class="containing">
         <div class="content">
@@ -49,6 +51,7 @@
     <?php endif ?>
 
 
+    <script src="<?= URL ?>public/javascript/menu_responsive.js"></script>
     <script src="<?= URL ?>public/javascript/alert.js"></script>
     <script src="<?= URL ?>public/javascript/darkMode.js"></script>
 </body>

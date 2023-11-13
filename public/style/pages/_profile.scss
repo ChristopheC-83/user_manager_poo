@@ -3,6 +3,7 @@
   width: clamp(300px, 50vw, 800px);
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 20px;
   position: relative;
   height: 35px;
@@ -172,4 +173,10 @@ width: 60px;
 height: 60px;
 border-radius: 50%;
 box-shadow: 1px 1px 10px 3px var(--shadow_1);
+}
+
+@media all and (max-width: 768px){
+  .infoProfile {
+    justify-content: center;
+  }
 }

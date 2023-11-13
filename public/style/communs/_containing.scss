@@ -8,4 +8,12 @@
 
 .content {
   flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+@media all and (max-width: 768px) {
+  .containing {
+    margin: 0;
+  }
 }

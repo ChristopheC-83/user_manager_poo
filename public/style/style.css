@@ -156,6 +156,7 @@ p {
   padding: 10px;
   max-width: 1600px;
   position: relative;
+  flex-grow: 1;
 }
 .container h1 {
   text-align: center;
@@ -171,8 +172,7 @@ p {
 @media all and (max-width: 768px) {
   .container {
     width: 98%;
-    margin: 20px auto;
-    padding-top: 80px;
+    margin-top: 40px;
   }
 }
 .overlay {
@@ -183,6 +183,8 @@ p {
   left: 0;
   background-color: var(--overlay);
   z-index: 10;
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
 }
 
 .dark-switch {
@@ -320,6 +322,63 @@ header h2 {
   text-align: center;
 }
 
+.btn_menu_responsive {
+  width: 100%;
+  height: 50px;
+  padding: 5px 20px;
+  font-size: 40px;
+  position: fixed;
+  color: white;
+  top: 0px;
+  left: 0px;
+  display: none;
+  transition: all 0.5s;
+  z-index: 20;
+}
+.btn_menu_responsive img {
+  box-shadow: 0px 0px 20px 5px var(--bg_1);
+}
+
+.arrow_btn {
+  color: var(--text_2);
+  border-radius: 50%;
+  transition: all 0.5s;
+  border: 2px solid #333;
+}
+
+.arrow_btn_dark {
+  color: var(--bg_1);
+  border-radius: 50%;
+  transition: all 0.5s;
+}
+
+.arrow_btn_return {
+  transform: rotate(180deg) rotateY(360deg);
+}
+
+@media all and (max-width: 768px) {
+  header {
+    position: fixed;
+    top: 0px;
+    left: 0;
+    right: 0;
+    width: 100vw;
+    height: calc(100vh - 60px);
+    transform: translateX(-100%);
+    transition: all 0.5s ease-in;
+    z-index: 20;
+  }
+  header h2 {
+    margin: 10px 10px;
+  }
+  .header_open {
+    transform: translate(0, 10px);
+    z-index: 20;
+  }
+  .btn_menu_responsive {
+    display: block;
+  }
+}
 .btnThemesContainer {
   width: 100%;
   height: 80%;
@@ -384,9 +443,7 @@ header h2 {
 
 @media screen and (max-width: 900px) {
   .btnThemesContainer {
-    padding-top: 2vh;
-    justify-content: start;
-    gap: 3vh;
+    z-index: 20;
   }
 }
 .profilLogOut {
@@ -418,8 +475,15 @@ header h2 {
 
 .content {
   flex-grow: 1;
+  display: flex;
+  flex-direction: column;
 }
 
+@media all and (max-width: 768px) {
+  .containing {
+    margin: 0;
+  }
+}
 .containerForm {
   margin: 0 auto;
   display: flex;
@@ -467,7 +531,7 @@ header h2 {
 .entryForm button {
   width: clamp(250px, 30vw, 450px);
   border-radius: 10px;
-  margin: 30px 0 20px;
+  margin: 20px auto;
   padding: 10px;
   transition: all 0.15s;
   box-shadow: 0px 4px 4px 0px var(--shadow_1);
@@ -516,6 +580,7 @@ header h2 {
   width: clamp(300px, 50vw, 800px);
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 20px;
   position: relative;
   height: 35px;
@@ -690,6 +755,11 @@ header h2 {
   box-shadow: 1px 1px 10px 3px var(--shadow_1);
 }
 
+@media all and (max-width: 768px) {
+  .infoProfile {
+    justify-content: center;
+  }
+}
 .erreurPassword {
   color: red;
   text-shadow: none;
@@ -714,7 +784,7 @@ tr {
 }
 
 .body {
-  background: linear-gradient(270deg, var(--bg_1) 0%, var(--components_1) 100%);
+  background: linear-gradient(270deg, var(--bg_1) 0%, var(--components_1) 100%) no-repeat;
   color: var(--text_2);
   width: 100%;
   min-height: 100vh;

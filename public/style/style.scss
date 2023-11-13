@@ -24,7 +24,7 @@
 // Utilisez les variables de couleur dans votre feuille de style
 
 .body {
-  background: linear-gradient(270deg, var(--bg_1) 0%, var(--components_1) 100%);
+  background: linear-gradient(270deg, var(--bg_1) 0%, var(--components_1) 100%) no-repeat;
   color: var(--text_2);
   width: 100%;
   min-height: 100vh;
