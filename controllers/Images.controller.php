@@ -27,6 +27,7 @@ class ImageController
             $nomImage = $this->addImage($file, $repertoire);
             $nomImageBd = "users/" . $_SESSION['profile']['login'] . "/" . $nomImage;
             if ($this->userManager->addImageDB($_SESSION['profile']['login'], $nomImageBd, 0)) {
+            $_SESSION['profile']['avatar'] = $nomImageBd;
                 header('location:' . URL . "account/profile");
             } else {
                 Tools::alertMessage("Modfication de l'image non effectuée.", "rouge");
@@ -71,6 +72,7 @@ class ImageController
         $this->deleteUserAvatar($_SESSION['profile']['login']);
         $linkAvatar = "site/" . $avatar;
         if ($this->userManager->ModifyAvatarDB($_SESSION['profile']['login'], $linkAvatar, 1)) {
+            $_SESSION['profile']['avatar'] = $linkAvatar;
             header('location:' . URL . "account/profile");
         } else {
             Tools::alertMessage("Modification de l'image non effectuée.", "red");
