@@ -40,11 +40,7 @@ try {
             break;
         case "theme":
             $themeChoisi = $secure->secureHTML($url[1]);
-            // $themes = getAllThemes();
             echo "tu as choisi le thème : " . $url[1];
-            // afficherTableau($themes);
-            // verification($themeChoisi);
-            // pageTheme($themeChoisi);
             break;
         case "connection":
             $visitorController->connectionPage();
@@ -73,11 +69,11 @@ try {
             $login = Tools::secureHTML($url[1]);
             $userController->resendValidationMail($login);
             break;
-        
+
         case "forgot_password":
             $userController->forgotPasswordPage();
             break;
-        
+
         case "send_forgot_password":
             if (!empty($_POST['login']) && !empty($_POST['mail'])) {
                 $login = Tools::secureHTML($_POST['login']);
@@ -88,15 +84,6 @@ try {
                 header('location:' . URL . "forgot_password");
                 exit;
             }
-
-
-
-
-
-
-
-
-
             break;
         case "validation_login":
             if (!empty($_POST['login']) && !empty($_POST['password'])) {
@@ -108,86 +95,16 @@ try {
                 header('Location: ' . URL . 'connection');
             }
             break;
-
+            // ################################# User
         case "account":
             if (!Tools::isConnected()) {
                 Tools::alertMessage("Vous devez vous connecter pour accéder à cet espace.", "red");
                 header('Location: ' . URL . 'connection');
             } else {
-                switch ($url[1]) {
-                    case "profile":
-                        $userController->profilePage();
-                        break;
-                    case "logout":
-                        $userController->logout();
-                        break;
-                    case "modify_mail":
-                        $newMail = Tools::secureHTML($_POST['new_mail']);
-                        $userController->modifyMail($newMail);
-                        break;
-                    case "modify_password":
-                        $userController->modifyPasswordPage();
-                        break;
-                    case "send_new_password":
-                        if (!empty($_POST['password']) && !empty($_POST['new_password']) && !empty($_POST['verif_password'])) {
-                            $old_password = Tools::secureHTML($_POST["password"]);
-                            $new_password = Tools::secureHTML($_POST["new_password"]);
-                            $verif_password = Tools::secureHTML($_POST["verif_password"]);
-                            $userController->sendNewPassword($old_password, $new_password, $verif_password);
-                        } else {
-                            Tools::alertMessage("Il faut remplir les 3 champs !", "orange");
-                            header('Location: ' . URL . 'account/modify_password');
-                        }
-                        break;
-                    case "modify_avatar_by_site":
-                        $newAvatar = Tools::secureHTML($url[2]);
-                        $userController->modifyAvatarBySite($newAvatar);
-                        break;
-
-                    case "modify_image_by_perso":
-                        if ($_FILES['image']['size'] > 0) {
-                            $userController->modifyAvatarByPerso($_FILES['image']);
-                        } else {
-                            Tools::alertMessage("Image non modifiée", "rouge");
-                            header('location:' . URL . "profil");
-                        }
-                        break;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    case "delete_account":
-                        $userController->deleteAccount();
-                        break;
-                    default:
-                        throw new Exception("La page demandée n'existe pas...");
-                }
+                require_once("./indexComponents/user.index.php");
             }
             break;
-
             // ################################# Editor
-
         case "editor":
             if (!Tools::isConnected()) {
                 Tools::alertMessage("Vous devez vous connecter pour accéder à cet espace.", "red");
@@ -196,20 +113,10 @@ try {
                 Tools::alertMessage("Vous n'avez pas le statut requis.", "red");
                 header('Location: ' . URL . 'home');
             } else {
-                switch ($url[1]) {
-                    case "write_article":
-                        $editorController->writeArticle();
-                        break;
-
-                    default:
-                        throw new Exception("La page demandée n'existe pas...");
-                }
+                require_once("./indexComponents/editor.index.php");
             }
             break;
-
-
             // ################################# Administrator
-
         case "administrator":
             if (!Tools::isConnected()) {
                 Tools::alertMessage("Vous devez vous connecter pour accéder à cet espace.", "red");
@@ -218,33 +125,9 @@ try {
                 Tools::alertMessage("Vous n'avez pas le statut requis.", "red");
                 header('Location: ' . URL . 'home');
             } else {
-                switch ($url[1]) {
-                    case "rights_management":
-                        $administratorController->rightsManagement();
-                        break;
-                    case "modify_role":
-                        $login = Tools::secureHTML($_POST['login']);
-                        $newRole = Tools::secureHTML($_POST['role']);
-                        // echo($login);
-                        // echo($newRole);
-                        $administratorController->modifyRole($login, $newRole);
-                        break;
-                    case "modify_state":
-                        $login = Tools::secureHTML($_POST['login']);
-                        $is_valid = Tools::secureHTML($_POST['is_valid']);
-                        $administratorController->modifyState($login, $is_valid);
-                        break;
-                    case "delete_account_user":
-                        $login = Tools::secureHTML($_POST['login']);
-                        $administratorController->deleteAccountUser($login);
-                        break;
-
-                    default:
-                        throw new Exception("La page demandée n'existe pas...");
-                }
+                require_once("./indexComponents/administrator.index.php");
             }
             break;
-
         default:
             throw new Exception("La page demandée n'existe pas...");
     }
