@@ -1,4 +1,4 @@
-<div class="">
+<div class="container">
 
     <h1>Titre Site / Accueil</h1>
     <h2>Accueil Contiendra</h2>

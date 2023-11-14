@@ -5,23 +5,23 @@ const btnModifyName = document.querySelector("#btnModifyMail");
 const formModifyName = document.querySelector("#formModifyMail");
 const blockModifyName = document.querySelector("#blockModifyMail");
 
-function showBlock() {
-  blockModifyMail.classList.add("bigBlock");
-  setTimeout(() => {
-    formModifyMail.classList.remove("dnone");
-    formModifyMail.classList.add("decompressed");
-  }, 333);
-}
+// function showBlock() {
+//   blockModifyMail.classList.add("bigBlock");
+//   setTimeout(() => {
+//     formModifyMail.classList.remove("dnone");
+//     formModifyMail.classList.add("decompressed");
+//   }, 333);
+// }
 
-function hideBlock() {
-  formModifyMail.classList.add("compressed");
-  setTimeout(() => {
-    blockModifyMail.classList.remove("bigBlock");
-    formModifyMail.classList.add("dnone");
-    formModifyMail.classList.remove("decompressed");
-    formModifyMail.classList.remove("compressed");
-  }, 333);
-}
+// function hideBlock() {
+//   formModifyMail.classList.add("compressed");
+//   setTimeout(() => {
+//     blockModifyMail.classList.remove("bigBlock");
+//     formModifyMail.classList.add("dnone");
+//     formModifyMail.classList.remove("decompressed");
+//     formModifyMail.classList.remove("compressed");
+//   }, 333);
+// }
 function showBlock(form, block) {
   block.classList.add("bigBlock");
   setTimeout(() => {

@@ -46,3 +46,9 @@
 .green {
   background-color: greenyellow;
 }
+
+@media all and (max-width: 768px) {
+  .alert {
+    top: 70px;
+  }
+}

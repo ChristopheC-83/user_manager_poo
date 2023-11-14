@@ -20,8 +20,12 @@
     <?php require_once("views/components/header.php") ?>
 
 
-    <div class="btn_menu_responsive">
+    <div class="btn_menu_responsive ">
         <i class="fa-solid fa-circle-arrow-right arrow_btn"></i>
+        <?php if (!empty($_SESSION['profile'])) : ?>
+            <a href="<?= URL ?>account/profile"><img src="<?= URL . "public/assets/images/avatars/" . $_SESSION['profile']['avatar'] ?>" class="avatar_menu avatar_menu_resp"></a>
+        <?php endif ?>
+
     </div>
 
     <div class="containing">
@@ -46,12 +50,12 @@
 
     <?php if (!empty($js)) : ?>
         <?php foreach ($js as $jsFile) : ?>
-            <script src="<?= URL ?>public/javascript/<?= $jsFile ?>"> </script>
+            <script type="module" src="<?= URL ?>public/javascript/<?= $jsFile ?>"> </script>
         <?php endforeach ?>
     <?php endif ?>
 
 
-    <script src="<?= URL ?>public/javascript/menu_responsive.js"></script>
+    <script type="module" src="<?= URL ?>public/javascript/menu_responsive.js"></script>
     <script src="<?= URL ?>public/javascript/alert.js"></script>
     <script src="<?= URL ?>public/javascript/darkMode.js"></script>
 </body>

@@ -39,14 +39,4 @@
 
     </div>
 
-    <div class="">
-
-
-        <?php
-        Tools::showArray($datasUser);
-        ?>
-        <?php
-        Tools::showArray($_SESSION);
-        ?>
-
-    </div>
+   
