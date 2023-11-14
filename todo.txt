@@ -1,18 +1,5 @@
-Avanat la parti blog : 
+Avant la partie blog : 
 
-
-- disparition des alertes plus smooth...(remonte en réduisant et opacité baisse)
-apparition aussi (descentes à sa place...)
-
-- les alertes ne sont pas indépendantes les une des autres.
-C'est une div qui les contient.... ça permet de les placer les unes par rapport aux autres.
-
+Quand on sendmail :
 - un overlay avec un loader de 2 secondes pour masquer les temps de chargement lors d'envoi de données pour inscription par exemple.
 
-- régler la largeur de la page qui à tendance à dépasser de l'écran.
-
-- responsivité
-
-- voir à transformer le fichier index en plusieurs morceaux avec des class.
-
-- mot de passe oublié

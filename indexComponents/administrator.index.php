@@ -7,8 +7,6 @@ switch ($url[1]) {
     case "modify_role":
         $login = Tools::secureHTML($_POST['login']);
         $newRole = Tools::secureHTML($_POST['role']);
-        // echo($login);
-        // echo($newRole);
         $administratorController->modifyRole($login, $newRole);
         break;
     case "modify_state":

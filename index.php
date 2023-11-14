@@ -1,6 +1,7 @@
 <?php
 //Dès la connexion à ce site, toujours par ce point "index.php"
 // on démarre une SESSION
+
 session_start();
 
 // pour toujours repartir de la base du site on ecrira au début de nos liens (image ou autre...) :
@@ -22,8 +23,8 @@ $administratorController = new AdminstratorController();
 // l'index est le point d'entrée du site
 // au lieu d'avoir, ex pour page d'accueil
 // site/index.php?page=accueil
-//  on utilise htaccess pour obtenir :
-//  site/accueil 
+// on utilise htaccess pour obtenir :
+// site/accueil 
 // ce qui est plus convivial et lisible
 
 try {
@@ -59,7 +60,6 @@ try {
                 header('Location: ' . URL . 'registration');
             }
             break;
-
         case "mail_validation_account":
             $login = Tools::secureHTML($url[1]);
             $account_key = Tools::secureHTML($url[2]);
@@ -69,11 +69,9 @@ try {
             $login = Tools::secureHTML($url[1]);
             $userController->resendValidationMail($login);
             break;
-
         case "forgot_password":
             $userController->forgotPasswordPage();
             break;
-
         case "send_forgot_password":
             if (!empty($_POST['login']) && !empty($_POST['mail'])) {
                 $login = Tools::secureHTML($_POST['login']);
