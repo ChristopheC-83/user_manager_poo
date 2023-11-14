@@ -3,6 +3,11 @@
 <br><br>
 
 <br>
+<h3>14/11/2023</h3>
+Amélioration de la responsivité.<br>
+Correction bug avec overlay.<br>
+
+<br>
 <h3>13/11/2023</h3>
 gestion du mot d epasse oublié.<br>
 correction bug changement avatar.<br>

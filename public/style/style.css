@@ -349,6 +349,7 @@ header h2 {
   width: 50px !important;
   height: 50px !important;
   box-shadow: 0 0 15px 5px #333;
+  margin-top: 10px;
 }
 
 .arrow_btn {
@@ -367,6 +368,12 @@ header h2 {
 
 .arrow_btn_return {
   transform: rotate(180deg) rotateY(360deg);
+}
+
+.unconnected_user {
+  filter: drop-shadow(0 0 3px var(--text_2));
+  color: var(--text_2);
+  font-size: 40px;
 }
 
 @media all and (max-width: 768px) {

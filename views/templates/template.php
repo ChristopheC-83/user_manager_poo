@@ -24,6 +24,11 @@
         <i class="fa-solid fa-circle-arrow-right arrow_btn"></i>
         <?php if (!empty($_SESSION['profile'])) : ?>
             <a href="<?= URL ?>account/profile"><img src="<?= URL . "public/assets/images/avatars/" . $_SESSION['profile']['avatar'] ?>" class="avatar_menu avatar_menu_resp"></a>
+        <?php else : ?>
+
+            <a href="<?= URL ?>connection">
+                <i class="fa-regular fa-user unconnected_user"></i>
+            </a>
         <?php endif ?>
 
     </div>
