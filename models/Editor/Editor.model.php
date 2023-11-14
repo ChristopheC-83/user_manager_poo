@@ -1,9 +1,9 @@
 <?php
 
 
-require_once("./models/MainManager.model.php");
+require_once("./models/User/User.model.php");
 
-class EditorManager extends MainManager
+class EditorManager extends UserManager
 {
     public function getUsers()
     {

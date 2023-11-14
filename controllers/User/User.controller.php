@@ -102,13 +102,11 @@ class UserController extends MainController
             header('Location: ' . URL . 'registration');
         }
     }
-
     private function accountAlreadyActivated($login)
     {
         $datasUser = $this->userManager->getUserInfo($login);
         return ((int)$datasUser['is_valid'] === 1);
     }
-
     public function validationAccountByLinkMail($login, $account_key)
     {
         if ($this->accountAlreadyActivated($login)) {
@@ -149,7 +147,6 @@ class UserController extends MainController
         ];
         $this->functions->generatePage($data_page);
     }
-
     public function validationNewPassword($old_password, $new_password)
     {
         if ($this->userManager->isCombinationValid($_SESSION['profile']['login'], $old_password)) {
@@ -166,8 +163,6 @@ class UserController extends MainController
             header('Location: ' . URL . 'account/modify_password');
         }
     }
-
-
     public function sendNewPassword($old_password, $new_password, $verif_password)
     {
         if ($old_password === $new_password) {
@@ -193,7 +188,6 @@ class UserController extends MainController
             header('Location: ' . URL . 'account/profile');
         }
     }
-
     public function forgotPasswordPage()
     {
 
@@ -206,7 +200,6 @@ class UserController extends MainController
         ];
         $this->functions->generatePage($data_page);
     }
-
     public function  isCombinationMailValid($login, $mail)
     {
         $maildBd = $this->userManager->getMailUser($login);
@@ -217,8 +210,6 @@ class UserController extends MainController
         }
         
     }
-
-
     public function sendNewPasswordAfterForgot($login, $newMdp)
     {
         $mdpCrypte = password_hash($newMdp, PASSWORD_DEFAULT);
@@ -228,9 +219,6 @@ class UserController extends MainController
             Tools::alertMessage("Echec de la mise en place du nouveau mot de passe", "red");
         }
     }
-
-
-
     public function sendForgotPassword($login, $mail)
     {
         if (!$this->isCombinationMailValid($login, $mail)) {

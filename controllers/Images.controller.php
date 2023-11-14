@@ -2,7 +2,7 @@
 
 require_once("./models/User/User.model.php");
 
-class ImageController
+abstract class ImageController
 {
 
 
@@ -12,7 +12,7 @@ class ImageController
         $this->userManager = new ImagesManager();
     }
 
-    public function deleteUserAvatar($login)
+    protected function deleteUserAvatar($login)
     {
         if ($this->userManager->getImageSiteUser($login) == 0) {
             $oldAvatar = $this->userManager->getImageUser($login);

@@ -19,7 +19,6 @@ class VisitorController extends MainController
             "page_title" => "Page de connexion",
             "view" => "views/Visitor/connectionPage.view.php",
             "template" => "views/templates/template.php",
-
         ];
         $this->functions->generatePage($data_page);
     }
@@ -30,9 +29,7 @@ class VisitorController extends MainController
             "page_title" => "Page de création de compte",
             "view" => "views/Visitor/registrationPage.view.php",
             "template" => "views/templates/template.php",
-
         ];
         $this->functions->generatePage($data_page);
     }
-   
 }

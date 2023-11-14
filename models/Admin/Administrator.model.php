@@ -1,9 +1,9 @@
 <?php
 
 
-require_once("./models/MainManager.model.php");
+require_once("./models/Editor/Editor.model.php");
 
-class AdministratorManager extends MainManager
+class AdministratorManager extends EditorManager
 {
    public function modifyRoleDB($login, $role){
 

@@ -2,6 +2,9 @@
 
 // issu de ImagesController car utilisé à tous les niveaux
 
+// Tous les controllers (sauf images) sont issus de MainController. Ils sont indépendants les uns des autres.
+// Les managers découlent les une des autres pour récupérer les méthodes et ne pas appeler tous les managers dans chaque controller !
+
 require_once("./controllers/Images.controller.php");
 require_once("./controllers/Tools.controller.php");
 require_once("./models/Visitor/Visitor.model.php");
@@ -11,22 +14,18 @@ require_once("./models/Visitor/Visitor.model.php");
 abstract class MainController extends ImageController
 {
 
-    // l'injection de cette dépendance permet d'utiliser 
-    // dans les controller en charge d'afficher les pages les fonctions :
+    // l'injection de cette dépendance permet d'utiliser dans les controller les fonctions :
     // genererPage, afficherTableau, ajouterMessageAlerte
     //Les injections ne se transmettent pas aux classes enfant !
-
-    public $visitorManager;
     public $functions;
     public function __construct()
     {
         $this->functions = new Functions();
-        $this->visitorManager = new VisitorManager();
     }
 
 
-    // homePage et errorPage sont communes à tous les visitors, users et admin
-    //à rappeler dans les classes enfa,ts si besoin de personnaliser
+    // homePage et errorPage sont communes à tous les utilisateurs de tous les roles (visiteurs, utilisateurs, admin...)
+    //à rappeler dans les classes enfants si besoin de personnaliser
 
     public function homePage()
     {
