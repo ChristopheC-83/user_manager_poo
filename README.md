@@ -6,6 +6,7 @@
 <h3>14/11/2023</h3>
 Amélioration de la responsivité.<br>
 Correction bug avec overlay.<br>
+Correction bug suppression compte par admin.<br>
 
 <br>
 <h3>13/11/2023</h3>

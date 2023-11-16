@@ -2,16 +2,19 @@
 
 require_once("./controllers/Functions.controller.php");
 require_once("./models/Admin/Administrator.model.php");
-
+require_once("./controllers/Main.controller.php");
+require_once("./controllers/Images.controller.php");
 
 class AdminstratorController extends MainController
 {
     public $functions;
     public $administratorManager;
+    public $imageController;
     public function __construct()
     {
         $this->functions = new Functions();
         $this->administratorManager = new AdministratorManager();
+        $this->imageController = new ImageController();
     }
     public function rightsManagement()
     {
@@ -21,7 +24,6 @@ class AdminstratorController extends MainController
             "page_description" => "Page de gestion des droits",
             "page_title" => "Page de gestion des droits",
             "view" => "./views/Admin/rightsManagement.view.php",
-            "js" => ['rightsManagement.js'],
             "infoUsers" => $infoUsers,
             "template" => "views/templates/template.php",
         ];
@@ -47,7 +49,7 @@ class AdminstratorController extends MainController
     }
     public function deleteAccountUser($login)
     {
-        $this->deleteUserAvatar($login);
+        $this->imageController->deleteUserAvatar($login);
         rmdir("public/assets/images/avatars/users/" . $login);
         if ($this->administratorManager->deleteAccountDB($login)) {
             Tools::alertMessage("Suppression compte effectuée", "green");

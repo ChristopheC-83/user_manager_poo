@@ -124,6 +124,7 @@ try {
                 header('Location: ' . URL . 'home');
             } else {
                 require_once("./indexComponents/administrator.index.php");
+              
             }
             break;
         default:

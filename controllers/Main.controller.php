@@ -29,7 +29,6 @@ abstract class MainController extends ImageController
 
     public function homePage()
     {
-
         $data_page = [
             "page_description" => "Description accueil",
             "page_title" => "titre accueil",

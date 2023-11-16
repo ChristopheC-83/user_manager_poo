@@ -22,7 +22,7 @@ abstract class Tools
     }
     public static function isConnected()
     {
-        return (!empty($_SESSION['profile']));
+        return (!empty($_SESSION['profile']['role']));
     }
     public static function isUser()
     {
