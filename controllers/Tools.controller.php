@@ -49,4 +49,6 @@ abstract class Tools
             Tools::alertMessage("Mail non envoyé.", "red");
         }
     }
+
+    
 }

@@ -14,7 +14,7 @@
         </div>
 
         <div class="entryForm">
-            <button type="submit">
+            <button type="submit" id="btnForgotPassword">
                 <p>Envoi nouveau mot de passe</p>
             </button>
         </div>

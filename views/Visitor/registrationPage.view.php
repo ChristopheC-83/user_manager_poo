@@ -25,7 +25,7 @@
             <input type="mail" name="mail" id="mail">
         </div>
 
-        <div class="entryForm">
+        <div class="entryForm" id="btnRegistration">
             <button type="submit">
                 <p>Je crée mon compte</p>
             </button>

@@ -68,7 +68,6 @@
 
 
     <script type="module" src="<?= URL ?>public/javascript/menu_responsive.js"></script>
-    <script src="<?= URL ?>public/javascript/rights_management.js"></script>
     <script src="<?= URL ?>public/javascript/alert.js"></script>
     <script src="<?= URL ?>public/javascript/darkMode.js"></script>
 </body>

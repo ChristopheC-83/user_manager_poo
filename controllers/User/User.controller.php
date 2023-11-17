@@ -194,6 +194,7 @@ class UserController extends MainController
         $data_page = [
             "page_description" => "mot de passe oublié",
             "page_title" => "mot de passe oublié",
+            "jsm" => ['loader.js'],
             "view" => "./views/Visitor/forgotPasswordPage.view.php",
             "template" => "./views/templates/template.php",
 
@@ -221,6 +222,9 @@ class UserController extends MainController
     }
     public function sendForgotPassword($login, $mail)
     {
+
+        
+
         if (!$this->isCombinationMailValid($login, $mail)) {
             Tools::alertMessage("Pas de concordance, Merci de vérifier", "red");
             header('Location: ' . URL . 'forgot_password');

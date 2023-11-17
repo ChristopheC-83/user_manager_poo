@@ -27,6 +27,7 @@ class VisitorController extends MainController
         $data_page = [
             "page_description" => "Page de création de compte",
             "page_title" => "Page de création de compte",
+            "jsm" => ['loader.js'],
             "view" => "views/Visitor/registrationPage.view.php",
             "template" => "views/templates/template.php",
         ];
