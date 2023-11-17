@@ -24,7 +24,12 @@ $themes = $visitorController->getThemes();
    </a>
 
    <?php foreach ($themes as $theme) : ?>
-      <a href="<?= URL ?>theme/<?= $theme['theme'] ?>" class="btnTheme
+      <!-- Lien à changer quand mise en place du site -->
+      <a href="
+      
+      <!-- <?= URL ?>theme/<?= $theme['theme'] ?> -->
+      #
+      " class="btnTheme
        <?= $theme['theme'] ?> 
        <?= $url[1] === $theme['theme'] ? 'selected_theme' : '' ?>">
          <p><?= $theme['theme'] ?></p>
