@@ -11,7 +11,7 @@ require_once("./models/Visitor/Visitor.model.php");
 
 
 
-abstract class MainController extends ImageController
+class MainController extends ImageController
 {
 
     // l'injection de cette dépendance permet d'utiliser dans les controller les fonctions :

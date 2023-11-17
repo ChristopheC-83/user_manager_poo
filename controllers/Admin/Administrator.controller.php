@@ -2,6 +2,7 @@
 
 require_once("./controllers/Functions.controller.php");
 require_once("./models/Admin/Administrator.model.php");
+require_once("./models/User/User.model.php");
 require_once("./controllers/Main.controller.php");
 require_once("./controllers/Images.controller.php");
 
@@ -9,12 +10,14 @@ class AdminstratorController extends MainController
 {
     public $functions;
     public $administratorManager;
-    public $imageController;
+    public $userManager;
+    // public $imageController;
     public function __construct()
     {
         $this->functions = new Functions();
         $this->administratorManager = new AdministratorManager();
-        $this->imageController = new ImageController();
+        $this->userManager = new UserManager();
+        // $this->imageController = new ImageController();
     }
     public function rightsManagement()
     {
@@ -24,6 +27,7 @@ class AdminstratorController extends MainController
             "page_description" => "Page de gestion des droits",
             "page_title" => "Page de gestion des droits",
             "view" => "./views/Admin/rightsManagement.view.php",
+            "js" => ['rights_management.js'],
             "infoUsers" => $infoUsers,
             "template" => "views/templates/template.php",
         ];
@@ -47,9 +51,26 @@ class AdminstratorController extends MainController
         }
         header('Location: ' . URL . 'administrator/rights_management');
     }
+    private function deleteDirectory($dir)
+    {
+        if (!is_dir($dir)) {
+            return false;
+        }
+        $files = array_diff(scandir($dir), ['.', '..']);
+        foreach ($files as $file) {
+            $path = $dir . DIRECTORY_SEPARATOR . $file;
+            if (is_dir($path)) {
+                $this->deleteDirectory($path); // Appel récursif pour les sous-répertoires
+            } else {
+                unlink($path); // Suppression des fichiers
+            }
+        }
+        return rmdir($dir); // Suppression du répertoire principal
+    }
     public function deleteAccountUser($login)
     {
-        $this->imageController->deleteUserAvatar($login);
+        // $this->deleteDirectory("public/assets/images/avatars/users/" . $login);
+        $this->deleteUserAvatar($login);
         rmdir("public/assets/images/avatars/users/" . $login);
         if ($this->administratorManager->deleteAccountDB($login)) {
             Tools::alertMessage("Suppression compte effectuée", "green");

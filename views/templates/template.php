@@ -56,6 +56,12 @@
     <?php if (!empty($js)) : ?>
         
         <?php foreach ($js as $jsFile) : ?>
+            <script src="<?= URL ?>public/javascript/<?= $jsFile ?>"> </script>
+        <?php endforeach ?>
+    <?php endif ?>
+    <?php if (!empty($jsm)) : ?>
+        
+        <?php foreach ($jsm as $jsFile) : ?>
             <script type="module" src="<?= URL ?>public/javascript/<?= $jsFile ?>"> </script>
         <?php endforeach ?>
     <?php endif ?>

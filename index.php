@@ -10,6 +10,8 @@ define("URL", str_replace("index.php", "", (isset($_SERVER['HTTPS']) ? "https"  
     $_SERVER["PHP_SELF"]));
 
 
+require_once("./controllers/Images.controller.php");
+require_once("./controllers/Main.controller.php");
 require_once("./controllers/Visitor/Visitor.controller.php");
 require_once("./controllers/User/User.controller.php");
 require_once("./controllers/Editor/Editor.controller.php");
@@ -18,6 +20,10 @@ $visitorController = new VisitorController();
 $userController = new UserController();
 $editorController = new EditorController();
 $administratorController = new AdminstratorController();
+$mainController = new MainController();
+$imagesController = new ImageController();
+
+
 
 
 // l'index est le point d'entrée du site
@@ -36,6 +42,15 @@ try {
     }
 
     switch ($url[0]) {
+        // test et test2 ne sont pas appelées par le site, juste pour voir ce que contiennt les classes
+        case "test2":
+            require_once('./test2.php');
+            break;
+        case "test":
+            require_once('./test.php');
+            break;
+
+
         case "home":
             $visitorController->homePage();
             break;
@@ -124,7 +139,6 @@ try {
                 header('Location: ' . URL . 'home');
             } else {
                 require_once("./indexComponents/administrator.index.php");
-              
             }
             break;
         default:

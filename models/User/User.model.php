@@ -58,7 +58,7 @@ class UserManager extends MainManager
     public function registerAccountDB($login, $password, $mail, $account_key, $avatar)
     {
         $req = "INSERT INTO users (login, password, mail, is_valid, role, account_key, avatar, avatar_site)
-        VALUES(:login, :password, :mail, 1, 'user', :account_key, :avatar, 1)
+        VALUES(:login, :password, :mail, 0, 'user', :account_key, :avatar, 1)
         ";
         $stmt = $this->getBDD()->prepare($req);
         $stmt->bindValue(":login", $login, PDO::PARAM_STR);
