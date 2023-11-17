@@ -209,7 +209,6 @@ class UserController extends MainController
         } else {
             return false;
         }
-        
     }
     public function sendNewPasswordAfterForgot($login, $newMdp)
     {
@@ -223,12 +222,12 @@ class UserController extends MainController
     public function sendForgotPassword($login, $mail)
     {
 
-        
-
         if (!$this->isCombinationMailValid($login, $mail)) {
             Tools::alertMessage("Pas de concordance, Merci de vérifier", "red");
             header('Location: ' . URL . 'forgot_password');
         } else {
+
+            echo json_encode(['status' => 'success']);   //pour loader
             $newMdp = $this->functions->generateRandomPassword(20);
             $this->sendNewPasswordAfterForgot($login, $newMdp);
             $destinataire = $mail;
