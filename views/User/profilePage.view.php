@@ -52,7 +52,7 @@
         <div class="infoProfile">
             <p><b>Votre statut : </b></p>
             <p><?php if ($datasUser['role'] === 'user') {
-                    echo 'Inscrit';
+                    echo 'Utilisateur';
                 } elseif ($datasUser['role'] === 'editor') {
                     echo 'Editeur';
                 } elseif ($datasUser['role'] === 'admin') {
