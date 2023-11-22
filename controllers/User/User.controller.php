@@ -142,7 +142,7 @@ class UserController extends MainController
             "page_title" => "Page de profil",
             "datasUser" => $datasUser,
             "js" => ['passwordVerify.js'],
-            "view" => "./views/User/modifyPAsswordPage.view.php",
+            "view" => "./views/User/modifyPasswordPage.view.php",
             "template" => "./views/templates/template.php",
         ];
         $this->functions->generatePage($data_page);
