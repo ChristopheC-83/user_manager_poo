@@ -18,13 +18,13 @@ class UserController extends MainController
     public function validation_login($login, $password)
     {
         $datasUser = $this->userManager->getUserInfo($login);
-        $_SESSION['profile']['role'] =  $datasUser['role'];
-        $_SESSION['profile']['avatar'] =  $datasUser['avatar'];
-
+        
         if ($this->userManager->isCombinationValid($login, $password)) {
             if ($this->userManager->isAccountValidated($login)) {
                 Tools::alertMessage("You're welcome !", "green");
                 $_SESSION['profile']['login'] = $login;
+                $_SESSION['profile']['role'] =  $datasUser['role'];
+                $_SESSION['profile']['avatar'] =  $datasUser['avatar'];
                 header('Location: ' . URL . 'home');
                 // header('Location: ' . URL . 'account/profile');
             } else {
