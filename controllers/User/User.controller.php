@@ -26,7 +26,7 @@ class UserController extends MainController
                 $_SESSION['profile']['role'] =  $datasUser['role'];
                 $_SESSION['profile']['avatar'] =  $datasUser['avatar'];
                 Tools::generateCookieConnection();
-                header('Location: ' . URL . 'home');
+                header('Location: ' . URL . 'account/profile');
                 // header('Location: ' . URL . 'account/profile');
             } else {
                 Tools::alertMessage("Compte en attente validation", "orange");
@@ -113,13 +113,13 @@ class UserController extends MainController
     {
         if ($this->accountAlreadyActivated($login)) {
             $_SESSION['profile']['login'] = $login;
-            Tools::alertMessage("Ton compte est déjà activé !", "green");
-            header('Location: ' . URL . 'account/profile');
+            Tools::alertMessage("Ton compte est déjà activé ! Connecte toi !", "green");
+            header('Location: ' . URL . 'home');
         } else {
             if ($this->userManager->validationAccountDB($login, $account_key)) {
                 $_SESSION['profile']['login'] = $login;
-                Tools::alertMessage("Ton compte est activé ! Bienvenue !", "green");
-                header('Location: ' . URL . 'account/profile');
+                Tools::alertMessage("Ton compte est activé ! Connecte toi !", "green");
+                header('Location: ' . URL . 'home');
             } else {
                 Tools::alertMessage("Echec de l'activation du compte, réessaye.", "red");
                 header('Location: ' . URL . 'registration');

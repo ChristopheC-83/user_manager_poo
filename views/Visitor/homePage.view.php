@@ -4,10 +4,10 @@
     <h2>Accueil Contiendra</h2>
 
     <p>Contenu Accueil</p>
-    <?php
+    <!-- <?php
         if(!empty($_SESSION['profile'])){
         TOOLS::showArray($_SESSION);
         }
-    ?>
+    ?> -->
 
 </div>

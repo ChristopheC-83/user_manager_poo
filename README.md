@@ -7,6 +7,14 @@
 
 <br>
 <h3>16/11/2023</h3>
+Mise en place cookies de connexion.<br>
+
+<br>
+<h3>19/11/2023</h3>
+gestion pb connection dû à modif dans code<br>
+ménage dans  index.php avec découpage<br>
+<br>
+<h3>16/11/2023</h3>
 Correction bugs suppression compte par admin, les images restaient en mémoire.<br>
 Mise en place d'un loader quand envoie mail (création compte et mdp oublié).<br>
 <br>
