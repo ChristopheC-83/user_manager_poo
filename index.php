@@ -20,8 +20,8 @@ $visitorController = new VisitorController();
 $userController = new UserController();
 $editorController = new EditorController();
 $administratorController = new AdminstratorController();
-$mainController = new MainController();
-$imagesController = new ImageController();
+// $mainController = new MainController();
+// $imagesController = new ImageController();
 
 
 
@@ -42,7 +42,7 @@ try {
     }
 
     switch ($url[0]) {
-        // test et test2 ne sont pas appelées par le site, juste pour voir ce que contiennt les classes
+            // test et test2 ne sont pas appelées par le site, juste pour voir ce que contiennt les classes
         case "test2":
             require_once('./test2.php');
             break;
@@ -113,6 +113,8 @@ try {
             if (!Tools::isConnected()) {
                 Tools::alertMessage("Vous devez vous connecter pour accéder à cet espace.", "red");
                 header('Location: ' . URL . 'connection');
+            } elseif (!Tools::checkCookieConnection()) {
+                Tools::badCookie();
             } else {
                 require_once("./indexComponents/user.index.php");
             }
@@ -122,10 +124,14 @@ try {
             if (!Tools::isConnected()) {
                 Tools::alertMessage("Vous devez vous connecter pour accéder à cet espace.", "red");
                 header('Location: ' . URL . 'connection');
-            } else if (!Tools::isEditor()) {
+            } elseif (!Tools::isEditor()) {
                 Tools::alertMessage("Vous n'avez pas le statut requis.", "red");
                 header('Location: ' . URL . 'home');
-            } else {
+            } 
+            elseif (!Tools::checkCookieConnection()) {
+                Tools::badCookie();
+            } 
+            else {
                 require_once("./indexComponents/editor.index.php");
             }
             break;
@@ -134,9 +140,11 @@ try {
             if (!Tools::isConnected()) {
                 Tools::alertMessage("Vous devez vous connecter pour accéder à cet espace.", "red");
                 header('Location: ' . URL . 'connection');
-            } else if (!Tools::isAdministrator()) {
+            } elseif (!Tools::isAdministrator()) {
                 Tools::alertMessage("Vous n'avez pas le statut requis.", "red");
                 header('Location: ' . URL . 'home');
+            } elseif (!Tools::checkCookieConnection()) {
+                Tools::badCookie();
             } else {
                 require_once("./indexComponents/administrator.index.php");
             }

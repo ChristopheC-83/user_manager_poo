@@ -49,6 +49,24 @@ abstract class Tools
             Tools::alertMessage("Mail non envoyé.", "red");
         }
     }
+    public const COOKIE_NAME = "memory";
 
-    
+    public static function  generateCookieConnection()
+    {
+        $ticket = session_id() . microtime() . rand(0, 999999);
+        $ticket = hash("sha512", $ticket);
+        setCookie(self::COOKIE_NAME, $ticket, time() + (60*60*24));
+        $_SESSION['profile'][self::COOKIE_NAME] = $ticket;
+    }
+    public static function  checkCookieConnection()
+    {
+        return $_COOKIE[self::COOKIE_NAME] === $_SESSION['profile'][self::COOKIE_NAME];
+    }
+    public static function  badCookie()
+    {
+        Tools::alertMessage("Veuillez vous reconnecter.", "orange");
+        setcookie(Tools::COOKIE_NAME, "", time()-3600);
+        unset($_SESSION['profile']);
+        header('Location: ' . URL . 'connection');
+    }
 }

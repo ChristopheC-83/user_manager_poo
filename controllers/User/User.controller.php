@@ -18,13 +18,14 @@ class UserController extends MainController
     public function validation_login($login, $password)
     {
         $datasUser = $this->userManager->getUserInfo($login);
-        
+
         if ($this->userManager->isCombinationValid($login, $password)) {
             if ($this->userManager->isAccountValidated($login)) {
                 Tools::alertMessage("You're welcome !", "green");
                 $_SESSION['profile']['login'] = $login;
                 $_SESSION['profile']['role'] =  $datasUser['role'];
                 $_SESSION['profile']['avatar'] =  $datasUser['avatar'];
+                Tools::generateCookieConnection();
                 header('Location: ' . URL . 'home');
                 // header('Location: ' . URL . 'account/profile');
             } else {
@@ -57,6 +58,7 @@ class UserController extends MainController
     {
         unset($_SESSION['profile']);
         unset($_SESSION['profil']);
+        setcookie(Tools::COOKIE_NAME, '', time() - 3600 * 24 * 365);
         if ($_SESSION['profile']) {
             Tools::alertMessage("La déconnexion a échoué.", "red");
         } else {
